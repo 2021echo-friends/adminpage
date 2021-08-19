@@ -1,0 +1,27 @@
+table.navbar {
+    height: 100vh;
+    border-collapse: collapse;
+    box-shadow: 3px 0px 10px lightgray;
+}
+
+.navbar td {
+    padding: 20px;
+}
+
+.navbar td.logo {
+    border-bottom: 1px solid lightgray;
+}
+
+.navbar td.logout {
+    color: gray;
+    text-decoration: underline;
+    text-align: center;
+    vertical-align: bottom;
+    border-spacing: 0 100px;
+    height: 50%;
+}
+
+.navbar img {
+    width: 200px;
+    height: 200px;
+}
