@@ -1,6 +1,11 @@
-function App() {
+import Graph from "components/Graph";
+import React from "react";
+
+const App = () => {
   return (
-    <h1>hello</h1>
+    <div>
+      <Graph />
+    </div>
   );
 }
 
