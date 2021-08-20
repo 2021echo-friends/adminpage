@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import './Navbar.css';
 
 function Navbar(props) {
+    const [Selected, setSelected] = useState();
     const lists = [
         {id: 1, name: "▶ 고객 관리", path: "/customer"},
         {id: 2, name: "▶ 물품 관리", path: "/product"},
@@ -15,15 +16,20 @@ function Navbar(props) {
         props.history.push("/main");
     }
 
-    const onListHandler = (path) => {
-        props.history.push(path);
+    const onListHandler = (id) => {
+        setSelected(id);
+        props.history.push(lists[id-1].path);
+        console.log(Selected);
     }
 
     const onLogoutHandler = () => {
         props.history.push("/");
     }
 
-    const listItem = lists.map((list, key) => <tr key={key}><td onClick={() => onListHandler(list.path)}>{list.name}</td></tr>);
+    const listItem = lists.map((list, key) => Selected === list.id
+    ? <tr key={key}><td className="selected" onClick={() => onListHandler(list.id)}>{list.name}</td></tr>
+    : <tr key={key}><td onClick={() => onListHandler(list.id)}>{list.name}</td></tr>
+    );
 
     return (
         <table className="navbar">

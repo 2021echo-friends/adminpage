@@ -25,3 +25,7 @@ table.navbar {
     width: 200px;
     height: 200px;
 }
+
+.navbar td.selected {
+    font-weight: bold;
+}
