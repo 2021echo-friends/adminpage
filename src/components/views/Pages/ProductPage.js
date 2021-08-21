@@ -10,7 +10,7 @@ function ProductPage() {
 
     return (
         <div className="product">
-            <Navbar />
+            <Navbar selected={2} />
             <div className="board">
                 <Title title="물품 관리" />
                 <div className="content">

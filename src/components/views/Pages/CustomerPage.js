@@ -10,7 +10,7 @@ function CustomerPage() {
 
     return (
         <div className="customer">
-            <Navbar />
+            <Navbar selected={1} />
             <div className="board">
                 <Title title="고객 관리" />
                 <div className="content">

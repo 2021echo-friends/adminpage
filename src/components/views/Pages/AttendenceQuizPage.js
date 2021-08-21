@@ -10,7 +10,7 @@ function AttendenceQuizPage() {
 
     return (
         <div className="attendence-quiz">
-            <Navbar />
+            <Navbar selected={4} />
             <div className="board">
                 <Title title="출석 퀴즈 관리" />
                 <div className="content">

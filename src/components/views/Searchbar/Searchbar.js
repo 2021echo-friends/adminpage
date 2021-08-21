@@ -44,7 +44,7 @@ function Searchbar(props) {
 
     useEffect(() => {
         // axios로 데이터 가져오기
-    }, [, ])
+    }, [])
 
     const onSearchHandler = (e) => {
         setContent(e.target.value);
@@ -69,7 +69,7 @@ function Searchbar(props) {
                 onChange={onCriteriaHandler}
                 input={<BootstrapInput />}>
                     { criteria.map((criterion, key) => {
-                        return <MenuItem value={key}>{criterion}</MenuItem>
+                        return <MenuItem key={key} value={key}>{criterion}</MenuItem>
                     })}
                 </Select>
             </FormControl>

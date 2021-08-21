@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import { withRouter } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useHistory, withRouter } from 'react-router-dom';
+
 import './Navbar.css';
 
 function Navbar(props) {
-    const [Selected, setSelected] = useState();
+    const history = useHistory();
     const lists = [
         {id: 1, name: "▶ 고객 관리", path: "/customer"},
         {id: 2, name: "▶ 물품 관리", path: "/product"},
@@ -13,23 +14,34 @@ function Navbar(props) {
     ]
 
     const onLogoHandler = () => {
-        props.history.push("/main");
+        history.push("/main");
     }
 
     const onListHandler = (id) => {
-        setSelected(id);
-        props.history.push(lists[id-1].path);
-        console.log(Selected);
+        history.push(lists[id-1].path);
     }
 
     const onLogoutHandler = () => {
         props.history.push("/");
     }
 
-    const listItem = lists.map((list, key) => Selected === list.id
-    ? <tr key={key}><td className="selected" onClick={() => onListHandler(list.id)}>{list.name}</td></tr>
-    : <tr key={key}><td onClick={() => onListHandler(list.id)}>{list.name}</td></tr>
-    );
+    const listItem = lists.map((list, key) => {
+    if(props.selected === list.id) {
+        return (
+        <tr key={key}>
+            <td className="selected" onClick={() => onListHandler(list.id)}>
+                {list.name}
+            </td>
+        </tr> )
+    }    
+    else {
+        return (
+        <tr key={key}>
+            <td onClick={() => onListHandler(list.id)}>
+                {list.name}
+            </td>
+        </tr> )
+    }});
 
     return (
         <table className="navbar">
