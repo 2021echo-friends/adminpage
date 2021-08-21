@@ -10,7 +10,7 @@ function MainPage(props) {
             <div className="board">
                 <Title title="대시보드" />
                 <div className="content">
-                    
+
                 </div>
             </div>
         </div>

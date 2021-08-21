@@ -1,0 +1,26 @@
+button.new-button {
+    border-radius: 3px;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border: 1px solid #ced4da;
+    background-color: white;
+    box-shadow: 1px 1px 5px lightgray;
+}
+
+button.edit-button {
+    border-radius: 3px;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border: 1px solid #ced4da;
+    background-color: white;
+    box-shadow: 1px 1px 5px lightgray;
+}
+
+button.delete-button {
+    border-radius: 3px;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border: 1px solid #ced4da;
+    background-color: white;
+    box-shadow: 1px 1px 5px lightgray;
+}
