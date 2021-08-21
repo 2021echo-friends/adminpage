@@ -27,7 +27,8 @@ function LoginPage(props) {
     }
 
     return (
-        <div className="login">
+        <div className="login-background">
+            <div className="login">
             <img alt="logo" src="https://image.flaticon.com/icons/png/512/1598/1598431.png"/>
             <form onSubmit={onSubmitHandler}>
                 <h1>로그인</h1>
@@ -40,7 +41,9 @@ function LoginPage(props) {
                     로그인
                 </button>
             </form>
+            </div>
         </div>
+        
     )
 }
 

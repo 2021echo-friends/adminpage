@@ -9,6 +9,9 @@ function MainPage(props) {
             <Navbar />
             <div className="board">
                 <Title title="대시보드" />
+                <div className="content">
+                    
+                </div>
             </div>
         </div>
     )
