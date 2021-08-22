@@ -1,3 +1,8 @@
+div.list-one {
+    width: fit-content;
+    height: fit-content;
+}
+
 table.navbar {
     height: 100vh;
     border-collapse: collapse;
@@ -19,6 +24,10 @@ table.navbar {
     vertical-align: bottom;
     border-spacing: 0 100px;
     height: 50%;
+}
+
+.navbar td.logout logout-button {
+    justify-content: center;
 }
 
 .navbar img {

@@ -1,12 +1,12 @@
 import React from 'react';
 
-import Navbar from '../Navbar/Navbar';
-import Title from '../Navbar/Title';
-import './styles.css';
-import Searchbar from '../Searchbar/Searchbar';
-import EditButton from '../Button/EditButton';
-import DeleteButton from '../Button/DeleteButton';
-import NewButton from '../Button/NewButton';
+import Navbar from '../../Navbar/Navbar';
+import Title from '../../Navbar/Title';
+import '../styles.css';
+import Searchbar from '../../Searchbar/Searchbar';
+import EditButton from '../../Button/EditButton';
+import DeleteButton from '../../Button/DeleteButton';
+import NewButton from '../../Button/NewButton';
 
 function AttendenceQuizPage() {
     const criteria = [ '퀴즈 아이디' ];

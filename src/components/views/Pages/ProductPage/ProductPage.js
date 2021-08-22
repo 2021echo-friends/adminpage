@@ -1,12 +1,12 @@
 import React from 'react';
 
-import Navbar from '../Navbar/Navbar';
-import Title from '../Navbar/Title';
-import './styles.css';
-import Searchbar from '../Searchbar/Searchbar';
-import NewButton from '../Button/NewButton';
-import EditButton from '../Button/EditButton';
-import DeleteButton from '../Button/DeleteButton';
+import Navbar from '../../Navbar/Navbar';
+import Title from '../../Navbar/Title';
+import '../styles.css';
+import Searchbar from '../../Searchbar/Searchbar';
+import NewButton from '../../Button/NewButton';
+import EditButton from '../../Button/EditButton';
+import DeleteButton from '../../Button/DeleteButton';
 
 function ProductPage() {
     const criteria = [ '물품 아이디', '가격' ];
@@ -19,8 +19,8 @@ function ProductPage() {
                 <div className="content">
                     <Searchbar criteria={criteria} />
                     <div className="buttons">
-                        <NewButton />
-                        <EditButton />
+                        <NewButton path='/product/new' />
+                        <EditButton path='/product/edit' />
                         <DeleteButton />
                     </div>
                     <div>표</div>

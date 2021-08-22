@@ -29,16 +29,16 @@ function Navbar(props) {
     if(props.selected === list.id) {
         return (
         <tr key={key}>
-            <td className="selected" onClick={() => onListHandler(list.id)}>
-                {list.name}
+            <td className="selected">
+                <div className="list-one" onClick={() => onListHandler(list.id)}>{list.name}</div>
             </td>
         </tr> )
     }    
     else {
         return (
         <tr key={key}>
-            <td onClick={() => onListHandler(list.id)}>
-                {list.name}
+            <td>
+                <div className="list-one" onClick={() => onListHandler(list.id)}>{list.name}</div>
             </td>
         </tr> )
     }});
@@ -55,7 +55,9 @@ function Navbar(props) {
             <tbody>
                 {listItem}
                 <tr>
-                    <td className="logout" onClick={onLogoutHandler}>로그아웃</td>
+                    <td className="logout">
+                        <div className="logout-button" onClick={onLogoutHandler}>로그아웃</div>
+                    </td>
                 </tr>
             </tbody>    
         </table>

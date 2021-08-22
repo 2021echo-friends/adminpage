@@ -28,6 +28,34 @@ div.buttons {
     justify-content: flex-end;
 }
 
+table.edit-table {
+    margin-top: 3rem;
+    border-collapse: collapse;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    margin-bottom: 2rem;
+}
+
+table.edit-table td {
+    padding: 1rem;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+}
+
+table.edit-table td.td-title {
+    background-color: gray;
+    color: white;
+}
+
+table.edit-table input {
+    border: none;
+    font-size: 15px;
+}
+
+table.edit-table .edit-buttons {
+    display: flex;
+    justify-content: center;
+}
 /************ MainPage ************/
 div.main {
     display: flex;
@@ -91,7 +119,6 @@ div.customer {
     height: 100vh;
     width: 100%;
 }
-
 
 /************ EcoPointPage ************/
 div.ecopoint {

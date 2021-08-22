@@ -3,18 +3,18 @@ import { useHistory } from 'react-router-dom';
 
 import './Button.css';
 
-function NewButton(props) {
+function EditButton() {
     const history = useHistory();
 
     const onClickHandler = () => {
-        history.push(props.path);
+        history.goBack();
     }
 
     return (
-        <button className="new-button" onClick={onClickHandler}>
-            신규 등록
+        <button className="cancel-button" onClick={onClickHandler}>
+            취소
         </button>
     )
 }
 
-export default NewButton
+export default EditButton

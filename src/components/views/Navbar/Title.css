@@ -1,0 +1,9 @@
+div.title {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+
+.title h2 {
+    margin: 0;
+}

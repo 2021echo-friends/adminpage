@@ -1,8 +1,10 @@
-import React from 'react'
+import React from 'react';
+
+import './Title.css';
 
 function Title(props) {
     return (
-        <div>
+        <div className="title">
             <h2>{props.title}</h2>
             {props.subtitle}
         </div>
