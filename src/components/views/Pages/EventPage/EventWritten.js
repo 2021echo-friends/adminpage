@@ -12,7 +12,7 @@ const EventWritten = ({no, like, date, title, body}) =>{
         }
     }}>
         <div className="board_content">
-            <div className="sub num" id="hi123">{no}</div>
+            <div className="sub num">{no}</div>
             <div className="sub subTitle">{title}</div>
             <div className="sub date">{date}</div>
             <div className="sub like">{like}</div>

@@ -21,7 +21,7 @@ function EventPage() {
             like: 0,
             date: "2021-12-06",
             title:"반갑습니다",
-            body: "반가운 이유에 대해 말하겠습니다."
+            body: "반가운 이유에 대해 말하겠습니다. 제가 반가운 이유. 소신발언 하겠습니다.반가운 이유에 대해 말하겠습니다. 제가 반가운 이유. 소신발언 하겠습니다.반가운 이유에 대해 말하겠습니다. 제가 반가운 이유. 소신발언 하겠습니다."
         },
         {
             id:2,
@@ -49,9 +49,7 @@ function EventPage() {
                     <Searchbar criteria={criteria} />
                     <div className="buttons">
                         <NewButton />
-                        <EditButton />
-                        <DeleteButton />
-                    </div>
+                    </div>  
                     <div className="board_body">
                         <div className="board_header">
                             <div className="sub num">No</div>
