@@ -6,7 +6,8 @@ import EditButton from '../../Button/EditButton';
 import CancelButton from '../../Button/CancelButton';
 import '../styles.css';
 
-function CustomerEditPage() {
+function CustomerEditPage(prop) {
+    const {no, username, email, password, ecopoint} = prop.location.state;
     const [Id, setId] = useState("");
     const [Email, setEmail] = useState("");
     const [Password, setPassword] = useState("");
@@ -46,19 +47,43 @@ function CustomerEditPage() {
                         <tbody>
                             <tr>
                                 <td className="td-title">아이디</td>
-                                <td><input type="text" size="70" className="id" onChange={onIdHandler} /></td>
+                                <td><input
+                                    type="text"
+                                    size="70"
+                                    className="id"
+                                    onChange={onIdHandler}
+                                    value={username}
+                                    /></td>
                             </tr>
                             <tr>
                                 <td className="td-title">이메일</td>
-                                <td><input type="text" size="70" className="email" onChange={onEmailHandler} /></td>
+                                <td><input
+                                    type="text"
+                                    size="70"
+                                    className="email"
+                                    onChange={onEmailHandler}
+                                    value={email}
+                                    /></td>
                             </tr>
                             <tr>
                                 <td className="td-title">비밀번호</td>
-                                <td><input type="text" size="70" className="password" onChange={onPasswordHandler} /></td>
+                                <td><input
+                                    type="text"
+                                    size="70"
+                                    className="password"
+                                    onChange={onPasswordHandler}
+                                    value={password}
+                                    /></td>
                             </tr>
                             <tr>
                                 <td className="td-title">에코 포인트</td>
-                                <td><input type="text" size="70" className="ecopoint" onChange={onEcopointHandler} /></td>
+                                <td><input
+                                    type="text"
+                                    size="70"
+                                    className="ecopoint"
+                                    onChange={onEcopointHandler}
+                                    value={ecopoint}
+                                    /></td>
                             </tr>
                         </tbody>
                     </table>

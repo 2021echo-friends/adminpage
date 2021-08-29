@@ -5,12 +5,8 @@ import Title from '../../Navbar/Title';
 import '../styles.css';
 import Searchbar from '../../Searchbar/Searchbar';
 import NewButton from '../../Button/NewButton';
-import EditButton from '../../Button/EditButton';
-import DeleteButton from '../../Button/DeleteButton';
 import Written from "./EventWritten";
 import "./EventPage.css";
-
-
 
 function EventPage() {
     const criteria = [ '행사 아이디' ];

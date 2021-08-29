@@ -18,7 +18,7 @@ function App() {
         <Route exact path="/" component={LoginPage} />
         <Route exact path="/main" component={MainPage} />
         <Route exact path="/customer" component={CustomerPage} />
-        <Route exact path="/customer/edit" component={CustomerEditPage} />
+        <Route path="/customer/edit" component={CustomerEditPage} />
         <Route exact path="/product" component={ProductPage} />
         <Route exact path="/product/edit" component={ProductEditPage} />
         <Route exact path="/product/new" component={ProductAddPage} />
