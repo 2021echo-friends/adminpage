@@ -8,7 +8,7 @@ export const data = [{
     colorWay : ["#A9BF04", "#7C8C03", "#4F5902", "#222601", "#D9BD9C"]
 },];
 
-const makeGraph = (id, idx, x, y) => {
+export const makeGraph = (id, idx, x, y) => {
     const canvas = document.getElementById(id);
     const ctx = canvas.getContext('2d');
     let dataTotal = 0;
@@ -34,8 +34,3 @@ const makeGraph = (id, idx, x, y) => {
     ctx.fillStyle = "white";
     ctx.fill();
 }
-
-setTimeout(() => {
-    makeGraph("circleCanvas", 0, 195, 195);
-    makeGraph("circleCanvas", 1, 795, 195);
-}, 500);

@@ -1,11 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import Navbar from '../../Navbar/Navbar';
 import Title from '../../Navbar/Title';
 import '../styles.css';
 import './EcoPointPage.css';
-import {data as circleData} from './circleCanvas';
-
+import {data as circleData, makeGraph} from './circleCanvas';
 
 function EcoPointPage() {
     let data = [10, 8, 20, 400, 512];
@@ -20,11 +19,14 @@ function EcoPointPage() {
         return Math.floor((0.97 - (prop / maxData)) * 1000) / 10;
     })
 
-    setTimeout(() => {
+    useEffect(() => {
+        makeGraph("circleCanvas", 0, 195, 195);
+        makeGraph("circleCanvas", 1, 795, 195);
         var chart = document.getElementsByClassName("chart");
-    for(var i = 0; i < chart.length; i++){
-        chart[i].style.top = percentData[i] + "%";
-    }}, 1000);
+        for(var i = 0; i < chart.length; i++){
+            chart[i].style.top = percentData[i] + "%";
+        }
+    }, []);
 
     return (
         <div className="ecopoint">
