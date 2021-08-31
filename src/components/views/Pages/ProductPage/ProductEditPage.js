@@ -7,6 +7,7 @@ import CancelButton from '../../Button/CancelButton';
 import '../styles.css';
 
 function ProductEditPage(props) {
+    const {uid, price, name, pointScore, ecopoint} = props.location.state;
     const [Id, setId] = useState("");
     const [Image, setImage] = useState("");
     const [Price, setPrice] = useState("");
@@ -44,7 +45,13 @@ function ProductEditPage(props) {
                   <tr>
                     <td className="td-title">물품 아이디</td>
                     <td>
-                      <input type="text" size="70" className="product-id" onChange={onIdHandler}/>
+                      <input
+                      type="text"
+                      size="70"
+                      className="product-id"
+                      onChange={onIdHandler}
+                      value={uid}
+                      />
                     </td>
                   </tr>
                   <tr>
@@ -57,14 +64,24 @@ function ProductEditPage(props) {
                   <tr>
                     <td className="td-title">가격</td>
                     <td>
-                      <input type="text" size="70" className="price" onChange={onPriceHandler}
+                      <input
+                      type="text"
+                      size="70"
+                      className="price"
+                      onChange={onPriceHandler}
+                      value={price}
                       />
                     </td>
                   </tr>
                   <tr>
-                    <td className="td-title">설명</td>
+                    <td className="td-title">이름</td>
                     <td>
-                      <input type="text" size="70" className="description" onChange={onDescriptionHandler}
+                      <input
+                      type="text"
+                      size="70"
+                      className="description"
+                      onChange={onDescriptionHandler}
+                      value={name}
                       />
                     </td>
                   </tr>
