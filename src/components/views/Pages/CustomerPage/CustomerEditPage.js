@@ -6,12 +6,12 @@ import EditButton from '../../Button/EditButton';
 import CancelButton from '../../Button/CancelButton';
 import '../styles.css';
 
-function CustomerEditPage(prop) {
-    const {no, username, email, password, ecopoint} = prop.location.state;
-    const [Id, setId] = useState("");
-    const [Email, setEmail] = useState("");
-    const [Password, setPassword] = useState("");
-    const [EcoPoint, setEcoPoint] = useState("");
+function CustomerEditPage(props) {
+    const {no, username, email, password, ecopoint} = props.location.state;
+    const [Id, setId] = useState(username);
+    const [Email, setEmail] = useState(email);
+    const [Password, setPassword] = useState(password);
+    const [EcoPoint, setEcoPoint] = useState(ecopoint);
 
     useEffect(() => {
         // axios로 해당 고객 정보 불러오기
@@ -52,7 +52,7 @@ function CustomerEditPage(prop) {
                                     size="70"
                                     className="id"
                                     onChange={onIdHandler}
-                                    value={username}
+                                    value={Id}
                                     /></td>
                             </tr>
                             <tr>
@@ -62,7 +62,7 @@ function CustomerEditPage(prop) {
                                     size="70"
                                     className="email"
                                     onChange={onEmailHandler}
-                                    value={email}
+                                    value={Email}
                                     /></td>
                             </tr>
                             <tr>
@@ -72,7 +72,7 @@ function CustomerEditPage(prop) {
                                     size="70"
                                     className="password"
                                     onChange={onPasswordHandler}
-                                    value={password}
+                                    value={Password}
                                     /></td>
                             </tr>
                             <tr>
@@ -82,7 +82,7 @@ function CustomerEditPage(prop) {
                                     size="70"
                                     className="ecopoint"
                                     onChange={onEcopointHandler}
-                                    value={ecopoint}
+                                    value={EcoPoint}
                                     /></td>
                             </tr>
                         </tbody>

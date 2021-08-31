@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Navbar from '../../Navbar/Navbar';
 import Title from '../../Navbar/Title';
@@ -7,36 +7,29 @@ import Searchbar from '../../Searchbar/Searchbar';
 import NewButton from '../../Button/NewButton';
 import EditButton from '../../Button/EditButton';
 import DeleteButton from '../../Button/DeleteButton';
-import ProductInfo from './ProductInfo';
+import Token from '../../../../token';
 
 function ProductPage() {
     const criteria = [ '물품 아이디', '가격' ];
-    const productData = [
-        {
-            id:1,
-            uid: 1,
-            price: 3000,
-            name: "home",
-            pointScore: 30,
-            ecopoint: 120
-        },
-        {
-            id:2,
-            uid: 2,
-            price: 6000,
-            name: "car",
-            pointScore: 50,
-            ecopoint: 20
-        },
-        {
-            id:3,
-            uid: 3,
-            price: 10000,
-            name: "beer",
-            pointScore: 100,
-            ecopoint: 170
-        },
-    ]
+    const token = Token.token;
+    const [Data, setData] = useState([])
+    
+
+    useEffect(() => {   
+        fetch("http://54.180.146.9:3001/admin/product", {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+            })
+            .then(response => {
+                return response.json();
+            })
+            .then(response => {
+                console.log(response.data);
+                setData(response.data);
+            })
+    }, [])
 
     return (
         <div className="product">
@@ -48,6 +41,8 @@ function ProductPage() {
                     <div className="buttons">
                         <NewButton path='/product/new' />
                     </div>
+                    {
+                        /*
                     <div className="board_body">
                         <div className="board_header">
                             <div className="sub num">No</div>
@@ -68,7 +63,16 @@ function ProductPage() {
                             ))
                         }
                     </div>
-                    <div>이전다음</div>
+                    <div>이전다음</div> 
+                    */
+                    }
+                    { Data.map((data) => (
+                        <div>
+                        <p>{data.name}</p>
+                        <p>{data.eco_value}</p>
+                        </div>
+                    ))}
+                    <div>이전 다음</div>
                 </div>
             </div>
         </div>
