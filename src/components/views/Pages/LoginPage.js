@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { makeStyles } from '@material-ui/core';
 import { TextField } from '@material-ui/core';
+import { withStyles } from '@material-ui/styles';
 
 import './styles.css';
-import { withStyles } from '@material-ui/styles';
+import Token from '../../../token';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -30,6 +31,7 @@ function LoginPage(props) {
     const classes = useStyles();
     const [Id, setId] = useState("");
     const [Password, setPassword] = useState("");
+    const token = Token.token;
 
     const onIdHandler = (e) => {
         setId(e.currentTarget.value);
@@ -40,15 +42,22 @@ function LoginPage(props) {
     }
 
     const onSubmitHandler = (e) => {
-        e.preventDefault(); // 새로고침 x
+        e.preventDefault(); // 새로고침 x 
 
-        let variables = {
-            id: Id,
-            password: Password,
-        }
-
-        props.history.push("/main");
-        //axios
+        fetch("http:///54.180.146.9:3001/non-auth/login", {
+            method: "POST",
+            body: JSON.stringify({
+                email: "my2@example.com",
+                password: "1234",
+            })
+        })
+        .then(res => {
+            return res.json();
+        })
+        .then(res => {
+            console.log(res);
+            props.history.push('/main');
+        })
     }
 
     return (
