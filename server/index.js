@@ -4,7 +4,6 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 
 app.use(cors());
-app.use('/', require('./routes/index'));
 
 // application/x-www-form-urlencoded 데이터를 분석해서 가져올 수  있게 해줌
 app.use(bodyParser.urlencoded({ extended: true }));

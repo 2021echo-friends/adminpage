@@ -12,7 +12,7 @@ import Token from '../../../../token';
 function ProductPage() {
     const criteria = [ '물품 아이디', '가격' ];
     const token = Token.token;
-    const [Data, setData] = useState([])
+    const [Data, setData] = useState({})
     
 
     useEffect(() => {   
@@ -30,6 +30,7 @@ function ProductPage() {
                 setData(response.data);
             })
     }, [])
+
 
     return (
         <div className="product">
@@ -66,12 +67,16 @@ function ProductPage() {
                     <div>이전다음</div> 
                     */
                     }
-                    { Data.map((data) => (
+                    {
+                    /*
+                     Data.map((data) => (
                         <div>
                         <p>{data.name}</p>
                         <p>{data.eco_value}</p>
                         </div>
-                    ))}
+                    ))
+                    */
+                    }
                     <div>이전 다음</div>
                 </div>
             </div>
