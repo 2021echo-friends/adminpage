@@ -8,36 +8,30 @@ import EditButton from '../../Button/EditButton';
 import DeleteButton from '../../Button/DeleteButton';
 import CustomerEditPage from './CustomerEditPage';
 import CustomerInfo from './CustomerInfo';
+import { customerData } from '../../../../totalData';
 import "./Customer.css";
 
 function CustomerPage(props) {
     const criteria = [ '사용자 번호', '아이디', '이메일', '비밀번호', '에코포인트' ];
-    const customerData = [
-        {
-            id:1,
-            num: 1,
-            username: "hond",
-            email: "cdt9473@gmail.com",
-            password: "1234",
-            ecopoint: 120
-        },
-        {
-            id:2,
-            num: 2,
-            username: "mongmong",
-            email: "clashlabel@gmail.com",
-            password: "1234",
-            ecopoint: 200
-        },
-        {
-            id:3,
-            num: 3,
-            username: "orokos",
-            email: "wjp1230@knu.ac.kr",
-            password: "1234",
-            ecopoint: 300
-        }
-    ]
+
+    /*
+    useEffect(() => {   
+        fetch("http://54.180.146.9:3001/client/user", {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+            })
+            .then(response => {
+                return response.json();
+            })
+            .then(response => {
+                console.log(response.data);
+                setData(response.data);
+            })
+    }, []);
+    */
+
     return (
         <div className="customer">
             <Navbar selected={1} />

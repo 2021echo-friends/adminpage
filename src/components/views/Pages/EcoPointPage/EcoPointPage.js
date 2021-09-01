@@ -4,7 +4,8 @@ import Navbar from '../../Navbar/Navbar';
 import Title from '../../Navbar/Title';
 import '../styles.css';
 import './EcoPointPage.css';
-import {data as circleData, makeGraph} from './circleCanvas';
+import {makeGraph} from './circleCanvas';
+import {circleData} from "../../../../totalData";
 import Chart from './Chart';
 
 function EcoPointPage() {

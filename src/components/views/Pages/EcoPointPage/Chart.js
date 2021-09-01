@@ -20,58 +20,34 @@ const Chart = () => {
             chart[i].style.top = percentData[i] + "%";
         }
     }, []);
+
+    const reviewPart = () => {
+        const res = [];
+        for(var i = 0; i < 5; i++){
+            res.push(
+        <div className="reviewPart">
+            <div className="line">
+                <div className="chart">
+                    <div className="point"></div>
+                    <div className="lineBar"></div>
+                </div>
+            </div>
+        </div>);
+        }
+        return res;
+    }
+
     return (
         <div className="content ecoContent">
-                    <div className="reviewShowBox">
-                        <div className="reviewPart">
-                            <div className="line">
-                                <div className="chart">
-                                    <div className="point"></div>
-                                    <div className="lineBar"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="reviewPart">
-                            <div className="line">
-                                <div className="chart">
-                                    <div className="point"></div>
-                                    <div className="lineBar"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="reviewPart">
-                            <div className="line">
-                                <div className="chart">
-                                    <div className="point"></div>
-                                    <div className="lineBar"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="reviewPart">
-                            <div className="line">
-                                <div className="chart">
-                                    <div className="point"></div>
-                                    <div className="lineBar"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="reviewPart">
-                            <div className="line">
-                                <div className="chart">
-                                    <div className="point"></div>
-                                    <div className="lineBar"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="reviewNumBox">
-                        {
-                            chartData.name.map((prop) => (
-                                <div>{prop}</div>
-                            ))
-                        }
-                    </div>
-                </div>
+            <div className="reviewShowBox">
+                {reviewPart()}
+            </div>
+            <div className="reviewNumBox">
+                {chartData.name.map((prop) => (
+                    <div>{prop}</div>
+                ))}
+            </div>
+        </div>
     )
 
 }

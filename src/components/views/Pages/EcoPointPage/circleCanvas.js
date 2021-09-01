@@ -1,12 +1,4 @@
-export const data = [{
-    title : ["a", "bbbbb    ", "c", "d"],
-    num : [100, 300, 400, 500],
-    colorWay : ["#037F8C", "#F2B90C", "#F27507", "#F2490C", "#590202"]
-},{
-    title : ["e", "f", "g", "h", "p"],
-    num : [600, 700, 1000, 1500, 2000],
-    colorWay : ["#A9BF04", "#7C8C03", "#4F5902", "#222601", "#D9BD9C"]
-},];
+import { circleData as data } from "../../../../totalData";
 
 export const makeGraph = (id, idx, x, y) => {
     const canvas = document.getElementById(id);
