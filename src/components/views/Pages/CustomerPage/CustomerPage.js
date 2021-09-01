@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React, {useEffect} from 'react';
 import Navbar from '../../Navbar/Navbar';
 import Title from '../../Navbar/Title';
 import '../styles.css';
@@ -9,28 +8,39 @@ import DeleteButton from '../../Button/DeleteButton';
 import CustomerEditPage from './CustomerEditPage';
 import CustomerInfo from './CustomerInfo';
 import { customerData } from '../../../../totalData';
+import {token} from '../../../../token';
 import "./Customer.css";
 
 function CustomerPage(props) {
     const criteria = [ '사용자 번호', '아이디', '이메일', '비밀번호', '에코포인트' ];
-
-    /*
     useEffect(() => {   
-        fetch("http://54.180.146.9:3001/client/user", {
-            method: "GET",
-            headers: {
-                Authorization: `Bearer ${token}`,
+        fetch("http://54.180.146.9:3001/auth-non/login", {
+            method: "POST",
+            headers:{
+                "Content-Type" : "application/json"
             },
+            body: JSON.stringify({
+                email : "admin@example.com",
+                password: "1234"
             })
-            .then(response => {
-                return response.json();
+        })
+        /*
+        fetch("http://54.180.146.9:3001/admin/product", {
+            method: "POST",
+            headers:{
+                "Content-Type" : "application/json", Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({
             })
-            .then(response => {
-                console.log(response.data);
-                setData(response.data);
-            })
+        })
+        */
+        .then((response) => {
+            return response.json();
+        })
+        .then((response) => {
+            console.log(response.data);
+        })
     }, []);
-    */
 
     return (
         <div className="customer">
