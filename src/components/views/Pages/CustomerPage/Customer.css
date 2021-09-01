@@ -1,0 +1,35 @@
+.board_body_customer {
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  min-height: calc(100vh - 250px - 200px);
+  height: 100%;
+}
+.board_body_customer a {
+  width: 100%;
+  height: 40px;
+  text-decoration: none;
+  color: #000;
+}
+.board_body_customer a:hover {
+  background-color: #eee;
+}
+.board_body_customer .board_header,
+.board_body_customer .board_content {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: 40px;
+  padding: 0 100px 0 0;
+}
+.board_body_customer .sub {
+  width: 1px;
+  text-align: center;
+  white-space: nowrap;
+}

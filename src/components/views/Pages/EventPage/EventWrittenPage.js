@@ -8,7 +8,7 @@ import DeleteButton from '../../Button/DeleteButton';
 
 const EventWrittenPage = (props) => {
     const criteria = [ '행사 아이디' ];
-    const {no, like, date, title, body} = props.location.state;
+    const {no, date, title, body} = props.location.state;
     return(
         <div className="event">
             <Navbar selected={3} />
@@ -25,7 +25,7 @@ const EventWrittenPage = (props) => {
                             <span>{title}</span>
                         </div>
                         <div className="title_sub">
-                            <span>No{no} {date} {like}</span>
+                            <span>No{no} {date}</span>
                         </div>
                         <div className="board_body">
                             {body}

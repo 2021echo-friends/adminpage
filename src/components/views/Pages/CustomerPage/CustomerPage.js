@@ -8,6 +8,7 @@ import EditButton from '../../Button/EditButton';
 import DeleteButton from '../../Button/DeleteButton';
 import CustomerEditPage from './CustomerEditPage';
 import CustomerInfo from './CustomerInfo';
+import "./Customer.css";
 
 function CustomerPage(props) {
     const criteria = [ '사용자 번호', '아이디', '이메일', '비밀번호', '에코포인트' ];
@@ -48,12 +49,13 @@ function CustomerPage(props) {
                         <EditButton path="customer/edit" />
                         <DeleteButton />
                     </div>
-                    <div className="board_body">
+                    <div className="board_body_customer">
                         <div className="board_header">
                             <div className="sub num">No</div>
-                            <div className="sub subTitle">제목</div>
-                            <div className="sub date">작성시간</div>
-                            <div className="sub like">공감</div>
+                            <div className="sub name">이름</div>
+                            <div className="sub email">이메일</div>
+                            <div className="sub password">패스워드</div>
+                            <div className="sub ecoPoint">에코포인트</div>
                         </div>
                         {
                             customerData.map((data) => (
