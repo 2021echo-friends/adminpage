@@ -11,10 +11,8 @@ import { customerData } from '../../../../totalData';
 import {token} from '../../../../token';
 import "./Customer.css";
 
-function CustomerPage(props) {
-    const criteria = [ '사용자 번호', '아이디', '이메일', '비밀번호', '에코포인트' ];
-    useEffect(() => {   
-        fetch("http://54.180.146.9:3001/auth-non/login", {
+/*
+fetch("http://54.180.146.9:3001/auth-non/login", {
             method: "POST",
             headers:{
                 "Content-Type" : "application/json"
@@ -24,21 +22,30 @@ function CustomerPage(props) {
                 password: "1234"
             })
         })
-        /*
+
+
         fetch("http://54.180.146.9:3001/admin/product", {
-            method: "POST",
-            headers:{
-                "Content-Type" : "application/json", Authorization: `Bearer ${token}`,
+            method: "GET",
+            headers: {
+                "Authorization" : `Bearer ${token}`
             },
-            body: JSON.stringify({
-            })
         })
-        */
+*/
+
+function CustomerPage(props) {
+    const criteria = [ '사용자 번호', '아이디', '이메일', '비밀번호', '에코포인트' ];
+    useEffect(() => {   
+        fetch("http://54.180.146.9:3001/admin/statics", {
+            method: "GET",
+            headers: {
+                "Authorization" : `Bearer ${token}`
+            },
+        })
         .then((response) => {
             return response.json();
         })
         .then((response) => {
-            console.log(response.data);
+            console.log(response);
         })
     }, []);
 
