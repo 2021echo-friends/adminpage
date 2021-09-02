@@ -27,7 +27,7 @@ function ProductPage() {
             })
             .then(response => {
                 console.log(response.data);
-                setData(response.data);
+                //setData(response.data);
             })
     }, [])
 
