@@ -20,7 +20,7 @@ function App() {
         <Route exact path="/customer" component={CustomerPage} />
         <Route path="/customer/edit" component={CustomerEditPage} />
         <Route exact path="/product" component={ProductPage} />
-        <Route exact path="/product/edit" component={ProductEditPage} />
+        <Route path="/product/edit" component={ProductEditPage} />
         <Route exact path="/product/new" component={ProductAddPage} />
         <Route exact path="/event" component={EventPage} />
         <Route path="/eventwritten" component={EventWrittenPage} />

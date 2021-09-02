@@ -6,36 +6,11 @@ import '../styles.css';
 import Searchbar from '../../Searchbar/Searchbar';
 import NewButton from '../../Button/NewButton';
 import Written from "./EventWritten";
+import { eventWritten as written } from '../../../../totalData';
 import "./EventPage.css";
 
 function EventPage() {
     const criteria = [ '행사 아이디' ];
-    const written = [
-        {
-            id:1,
-            num: 1,
-            like: 0,
-            date: "2021-12-06",
-            title:"반갑습니다",
-            body: "반가운 이유에 대해 말하겠습니다. 제가 반가운 이유. 소신발언 하겠습니다.반가운 이유에 대해 말하겠습니다. 제가 반가운 이유. 소신발언 하겠습니다.반가운 이유에 대해 말하겠습니다. 제가 반가운 이유. 소신발언 하겠습니다."
-        },
-        {
-            id:2,
-            num: 2,
-            like: 0,
-            date: "2021-12-06",
-            title:"반갑습니다",
-            body: "반가운 이유에 대해 말하겠습니다."
-        },
-        {
-            id:3,
-            num: 3,
-            like: 0,
-            date: "2021-12-06",
-            title:"반갑습니다",
-            body: "반가운 이유에 대해 말하겠습니다."
-        }
-    ]
     return (
         <div className="event">
             <Navbar selected={3} />
@@ -51,7 +26,6 @@ function EventPage() {
                             <div className="sub num">No</div>
                             <div className="sub subTitle">제목</div>
                             <div className="sub date">작성시간</div>
-                            <div className="sub like">공감</div>
                         </div>
                         {
                             written.map((data) => (
