@@ -29,12 +29,12 @@ const CssTextField = withStyles({
 
 function LoginPage(props) {
     const classes = useStyles();
-    const [Id, setId] = useState("");
+    const [Email, setEmail] = useState("");
     const [Password, setPassword] = useState("");
     const token = Token.token;
 
-    const onIdHandler = (e) => {
-        setId(e.currentTarget.value);
+    const onEmailHandler = (e) => {
+        setEmail(e.currentTarget.value);
     }
 
     const onPasswordHandler = (e) => {
@@ -43,20 +43,28 @@ function LoginPage(props) {
 
     const onSubmitHandler = (e) => {
         e.preventDefault(); // 새로고침 x 
-
-        fetch("http:///54.180.146.9:3001/non-auth/login", {
+        
+        fetch("http://54.180.146.9:3001/auth-non/login", {
             method: "POST",
+            headers:{
+                "Content-Type" : "application/json"
+            },
             body: JSON.stringify({
-                email: "my2@example.com",
-                password: "1234",
+                email : Email,
+                password: Password,
             })
         })
         .then(res => {
             return res.json();
         })
         .then(res => {
-            console.log(res);
-            props.history.push('/main');
+            if(res.success === false) {
+                alert('이메일 혹은 비밀번호가 잘못 되었습니다.');
+            } else {
+                console.log(res);
+                localStorage.setItem('token', res.data.token);
+                props.history.push('/main');
+            } 
         })
     }
 
@@ -68,10 +76,10 @@ function LoginPage(props) {
                 관리자페이지
                 <h1>로그인</h1>
                 <CssTextField
-                label="아이디"
-                className="textfield-id"
-                name="아이디"
-                onChange={onIdHandler}
+                label="이메일"
+                className="textfield-email"
+                name="이메일"
+                onChange={onEmailHandler}
                 type="text"
                 fullWidth
                 margin="normal" />

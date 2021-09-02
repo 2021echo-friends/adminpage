@@ -10,7 +10,7 @@ import DeleteButton from '../../Button/DeleteButton';
 import Token from '../../../../token';
 
 function ProductPage() {
-    const criteria = [ '물품 아이디', '가격' ];
+    const criteria = [ '전체', '물품 아이디', '가격' ];
     const token = Token.token;
     const [Data, setData] = useState({})
     

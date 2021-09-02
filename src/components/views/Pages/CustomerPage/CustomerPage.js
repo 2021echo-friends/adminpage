@@ -12,7 +12,7 @@ import {token} from '../../../../token';
 import "./Customer.css";
 
 function CustomerPage(props) {
-    const criteria = [ '사용자 번호', '아이디', '이메일', '비밀번호', '에코포인트' ];
+    const criteria = [ '전체', '사용자 번호', '아이디', '이메일', '비밀번호', '에코포인트' ];
     useEffect(() => {   
         fetch("http://54.180.146.9:3001/auth-non/login", {
             method: "POST",

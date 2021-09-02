@@ -10,7 +10,7 @@ import { eventWritten as written } from '../../../../totalData';
 import "./EventPage.css";
 
 function EventPage() {
-    const criteria = [ '행사 아이디' ];
+    const criteria = [ '전체', '행사 아이디' ];
     return (
         <div className="event">
             <Navbar selected={3} />
