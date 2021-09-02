@@ -1,13 +1,13 @@
 import React, {useEffect} from 'react';
 import Navbar from '../../Navbar/Navbar';
 import Title from '../../Navbar/Title';
-import '../styles.css';
 import Searchbar from '../../Searchbar/Searchbar';
 import EditButton from '../../Button/EditButton';
 import DeleteButton from '../../Button/DeleteButton';
 import CustomerEditPage from './CustomerEditPage';
 import CustomerInfo from './CustomerInfo';
 import { customerData } from '../../../../totalData';
+import '../styles.css';
 import "./Customer.css";
 
 /*
@@ -63,7 +63,7 @@ function CustomerPage(props) {
             return response.json();
         })
         .then((response) => {
-            console.log(response.data);
+            //console.log(response.data);
         })
     }, []);
 

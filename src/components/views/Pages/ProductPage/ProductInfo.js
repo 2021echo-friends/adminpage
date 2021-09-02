@@ -1,21 +1,22 @@
 import {Link} from "react-router-dom";
 
-const ProductInfo = ({uid, price, name, pointScore, ecopoint}) =>{
+const ProductInfo = ({num, name, price, point, ecopoint}) =>{
     return(<Link 
-    to={{ pathname: `/product/edit/${uid}`,
+    to={{ pathname: `/product/edit/${num}`,
         state: {
-            uid,
-            price,
+            num,
             name,
-            pointScore,
+            price,
+            point,
             ecopoint
         }
     }}>
         <div className="board_content">
-            <div className="sub num">{uid}</div>
-            <div className="sub subTitle">{name}</div>
-            <div className="sub date">{price}</div>
-            <div className="sub like">{pointScore}</div>
+            <div className="sub num">{num}</div>
+            <div className="sub name">{name}</div>
+            <div className="sub price">{price}</div>
+            <div className="sub point">{point}</div>
+            <div className="sub ecoPoint">{ecopoint}</div>
         </div>
     </Link>
     );
