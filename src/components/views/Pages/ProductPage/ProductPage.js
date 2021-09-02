@@ -7,28 +7,54 @@ import Searchbar from '../../Searchbar/Searchbar';
 import NewButton from '../../Button/NewButton';
 import EditButton from '../../Button/EditButton';
 import DeleteButton from '../../Button/DeleteButton';
-import Token from '../../../../token';
 
 function ProductPage() {
-    const criteria = [ '물품 아이디', '가격' ];
-    const token = Token.token;
-    const [Data, setData] = useState({})
-    
-
+    const criteria = [ '전체', '물품 아이디', '가격' ];
+    const token = localStorage.getItem("token");
+    const [Data, setData] = useState({});
     useEffect(() => {   
+        /*
+            물품 받아오기
+            fetch("http://54.180.146.9:3001/admin/product", {
+                method: "GET",
+                headers: {
+                    "Content-Type" : "application/x-www-form-urlencoded",
+                    "Authorization" : `Bearer ${token}`
+                }
+            })
+            
+            물품 추가하기
+            fetch("http://54.180.146.9:3001/admin/product", {
+            method: "POST",
+            headers: {
+                "Content-Type" : "application/json",
+                "Authorization" : `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                name : "yoon test",
+                price : 20000,
+                description : "do test",
+                point_value : 20,
+                eco_value : 250,
+            })
+        })
+        */
         fetch("http://54.180.146.9:3001/admin/product", {
             method: "GET",
             headers: {
-                Authorization: `Bearer ${token}`,
-            },
-            })
-            .then(response => {
-                return response.json();
-            })
-            .then(response => {
-                console.log(response.data);
-                setData(response.data);
-            })
+                "Content-Type" : "application/x-www-form-urlencoded",
+                "Authorization" : `Bearer ${token}`
+            }
+        })
+        .then(response => {
+            return response.json();
+        })
+        .then(response => {
+            console.log(response.data);
+            setData(response.data);
+
+        })
+
     }, [])
 
 

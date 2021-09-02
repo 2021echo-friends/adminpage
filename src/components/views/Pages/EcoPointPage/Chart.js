@@ -15,7 +15,6 @@ const Chart = () => {
 
     useEffect(() => {
         var chart = document.getElementsByClassName("chart");
-        console.log(chart.length);
         for(var i = 0; i < chart.length; i++){
             chart[i].style.top = percentData[i] + "%";
         }

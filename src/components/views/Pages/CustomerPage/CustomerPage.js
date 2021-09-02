@@ -8,11 +8,13 @@ import DeleteButton from '../../Button/DeleteButton';
 import CustomerEditPage from './CustomerEditPage';
 import CustomerInfo from './CustomerInfo';
 import { customerData } from '../../../../totalData';
-import {token} from '../../../../token';
 import "./Customer.css";
 
 /*
-fetch("http://54.180.146.9:3001/auth-non/login", {
+function CustomerPage(props) {
+    const criteria = [ '전체', '사용자 번호', '아이디', '이메일', '비밀번호', '에코포인트' ];
+    useEffect(() => {   
+        fetch("http://54.180.146.9:3001/auth-non/login", {
             method: "POST",
             headers:{
                 "Content-Type" : "application/json"
@@ -34,18 +36,34 @@ fetch("http://54.180.146.9:3001/auth-non/login", {
 
 function CustomerPage(props) {
     const criteria = [ '사용자 번호', '아이디', '이메일', '비밀번호', '에코포인트' ];
+    const token = localStorage.getItem("token");
     useEffect(() => {   
-        fetch("http://54.180.146.9:3001/admin/statics", {
+        fetch("http://54.180.146.9:3001/client/user", {
             method: "GET",
             headers: {
+                "Content-Type" : "application/x-www-form-urlencoded",
+                "Authorization" : `Bearer ${token}`
+            }
+            /*
+            method: "POST",
+            headers: {
+                "Content-Type" : "application/x-www-form-urlencoded",
                 "Authorization" : `Bearer ${token}`
             },
+            body: JSON.stringify({
+                name : "yoon",
+                price : 20000,
+                description : "yonoyonoyn",
+                point_value : 20,
+                eco_value : 25
+            })
+            */
         })
         .then((response) => {
             return response.json();
         })
         .then((response) => {
-            console.log(response);
+            console.log(response.data);
         })
     }, []);
 
