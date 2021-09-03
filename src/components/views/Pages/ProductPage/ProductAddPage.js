@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import Navbar from '../../Navbar/Navbar';
 import Title from '../../Navbar/Title';
 import CancelButton from '../../Button/CancelButton';
+import EcoPointPage from '../EcoPointPage/EcoPointPage';
 import '../styles.css';
 
 function ProductAddPage() {

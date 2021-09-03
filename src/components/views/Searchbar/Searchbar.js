@@ -54,13 +54,15 @@ function Searchbar(props) {
         setCriterion(e.target.value);
     }
 
-    const onSubmitHandler = () => {
-        //axios로 데이터 요청
+    const onSubmitHandler = (e) => {
+      e.preventDefault();
+      console.log(Criterion);
     }
 
     return (
         <div className="searchbar">
-            <div className="criteria">
+          <form>
+          <div className="criteria">
             <FormControl className={classes.margin}>
                 <Select
                 labelId="demo-customized-select-label"
@@ -76,6 +78,7 @@ function Searchbar(props) {
             </div>
             <input type="text" size="60" className="search" placeholder="Search" onChange={onSearchHandler} />
             <button type="submit" onClick={onSubmitHandler} className="submit">검색</button>
+          </form>
         </div>
     )
 }

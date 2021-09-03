@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import Navbar from '../../Navbar/Navbar';
 import Title from '../../Navbar/Title';
@@ -7,18 +8,16 @@ import CancelButton from '../../Button/CancelButton';
 import '../styles.css';
 
 function CustomerEditPage(props) {
-    const {no, username, email, password, ecopoint} = props.location.state;
-    const [Id, setId] = useState(username);
+    const {no, username, email, password, ecopoint} = props.location.state || {};
+    const [Nickname, setNickname] = useState(username);
     const [Email, setEmail] = useState(email);
     const [Password, setPassword] = useState(password);
     const [EcoPoint, setEcoPoint] = useState(ecopoint);
+    const token = localStorage.getItem('token');
+    const history = useHistory();
 
-    useEffect(() => {
-        // axios로 해당 고객 정보 불러오기
-    }, [])
-
-    const onIdHandler = (e) => {
-        setId(e.target.value);
+    const onNicknameHandler = (e) => {
+        setNickname(e.target.value);
     }
 
     const onEmailHandler = (e) => {
@@ -33,6 +32,31 @@ function CustomerEditPage(props) {
         setEcoPoint(e.target.value);
     }
 
+    const onSubmitHandler = (e) => {
+        e.preventDefault();
+
+        fetch("http://54.180.146.9:3001/admin/user", {
+            method: "PUT",
+            headers: {
+                "Content-Type" : "application/x-www-form-urlencoded",
+                "Authorization" : `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                nickname: Nickname,
+                email: Email,
+                password: Password,
+            })
+        })
+        .then((response) => {
+            return response.json();
+        })
+        .then((response) => {
+            console.log(response);
+            history.push('/customer');
+            alert('수정되었습니다.');
+        })
+    }
+
     return (
         <div className="customer">
             <Navbar selected={1} />
@@ -41,18 +65,19 @@ function CustomerEditPage(props) {
                 title="고객 관리"
                 subtitle="고객 정보 수정" />
                 <div className="content">
+                    <form onSubmit={onSubmitHandler}>
                     <table className="edit-table">
                         <thead>
                         </thead>
                         <tbody>
                             <tr>
-                                <td className="td-title">아이디</td>
+                                <td className="td-title">닉네임</td>
                                 <td><input
                                     type="text"
                                     size="70"
-                                    className="id"
-                                    onChange={onIdHandler}
-                                    value={Id}
+                                    className="nickname"
+                                    onChange={onNicknameHandler}
+                                    value={Nickname}
                                     /></td>
                             </tr>
                             <tr>
@@ -87,8 +112,11 @@ function CustomerEditPage(props) {
                             </tr>
                         </tbody>
                     </table>
-                    <div className="edit-buttons">  
+                    <div className="edit-buttons">
                     <EditButton />
+                    </div>
+                    </form>
+                    <div className="edit-buttons">  
                     <CancelButton />
                     </div>
                 </div>
