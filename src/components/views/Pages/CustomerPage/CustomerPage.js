@@ -9,8 +9,10 @@ import '../styles.css';
 import "./Customer.css";
 
 function CustomerPage(props) {
-    const [Users, setUsers] = useState([])
-    const criteria = [ '전체', '사용자 번호', '아이디', '이메일', '비밀번호', '에코포인트' ];
+    const [Users, setUsers] = useState([]);
+    const [Criterion, setCriterion] = useState(0);
+    const [Content, setContent] = useState("")
+    const criteria = [ '전체', '닉네임', '이메일' ];
     const token = localStorage.getItem("token");
 
     useEffect(() => {   
@@ -28,7 +30,17 @@ function CustomerPage(props) {
             console.log(response.data.points);
             setUsers(response.data.points);
         })
-    }, []);
+    }, [Criterion]);
+
+    const getCriterion = (index) => {
+        setCriterion(index);
+        console.log(Criterion);
+      }
+
+    const getContent = (content) => {
+        setContent(content);
+        console.log(Content);
+    }
 
     return (
         <div className="customer">
@@ -36,7 +48,7 @@ function CustomerPage(props) {
             <div className="board">
                 <Title title="고객 관리" />
                 <div className="content">
-                    <Searchbar criteria={criteria} />
+                    <Searchbar criteria={criteria} getCriterion={getCriterion} getContent={getContent} />
                     <div className="board_body_customer">
                         <div className="board_header">
                             <div className="sub num">No</div>
@@ -49,14 +61,39 @@ function CustomerPage(props) {
                             Users.map((data, index) => {
                                 if(data.user_id.user_type === "admin") {
                                     return false;
-                                } 
-                                return <CustomerInfo
+                                }
+                                if(Criterion === 0) {
+                                    return <CustomerInfo
                                     key={data.user_id._id}
                                     no={index}
                                     username={data.user_id.nickname}
                                     email={data.user_id.email}
                                     password={data.user_id.password}
                                     ecopoint={data.account-data.used_account} />
+                                }
+                                if(Criterion === 1) {
+                                    if(data.user_id.nickname === Content) {
+                                        return <CustomerInfo
+                                    key={data.user_id._id}
+                                    no={index}
+                                    username={data.user_id.nickname}
+                                    email={data.user_id.email}
+                                    password={data.user_id.password}
+                                    ecopoint={data.account-data.used_account} />
+                                    }
+                                }
+                                if(Criterion === 2) {
+                                    if(data.user_id.email === Content) {
+                                        return <CustomerInfo
+                                    key={data.user_id._id}
+                                    no={index}
+                                    username={data.user_id.nickname}
+                                    email={data.user_id.email}
+                                    password={data.user_id.password}
+                                    ecopoint={data.account-data.used_account} />
+                                    }
+                                }
+                                return false;
                             })
                         }
                     </div>
