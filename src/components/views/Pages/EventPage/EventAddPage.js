@@ -7,7 +7,7 @@ import '../styles.css';
 
 function EventAddPage(){
     const token = localStorage.getItem("token");
-    const [Title, setTitle] = useState("");
+    const [eventTitle, setEventTitle] = useState("");
     const [Body, setBody] = useState("");
     const history = useHistory();
 
@@ -16,7 +16,7 @@ function EventAddPage(){
     }, [])
 
     const onTitleHandler = (e) => {
-      setTitle(e.target.value);
+      setEventTitle(e.target.value);
     }
 
     const onBodyHandler = (e) => {
@@ -64,7 +64,7 @@ function EventAddPage(){
                       size="70"
                       className="eventTitle"
                       onChange={onTitleHandler}
-                      value={Title}
+                      value={eventTitle}
                       />
                     </td>
                   </tr>
