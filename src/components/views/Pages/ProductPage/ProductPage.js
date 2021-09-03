@@ -15,7 +15,6 @@ function ProductPage() {
     const token = localStorage.getItem("token");
     const [isDataIn, setIsDataIn] = useState(false);
     const [productData, setProductData] = useState();
-    console.log(productData);
     useEffect(() => {
         /*
             물품 받아오기
@@ -85,6 +84,7 @@ function ProductPage() {
                                     num={index + 1}
                                     name={data.name}
                                     price={data.price}
+                                    description={data.description}
                                     point={data.point_value}
                                     ecopoint={data.eco_value_o3}
                                 />

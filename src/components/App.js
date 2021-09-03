@@ -4,6 +4,7 @@ import CustomerPage from "./views/Pages/CustomerPage/CustomerPage";
 import CustomerEditPage from "./views/Pages/CustomerPage/CustomerEditPage";
 import EcoPointPage from "./views/Pages/EcoPointPage/EcoPointPage";
 import EventPage from "./views/Pages/EventPage/EventPage";
+import EventAddPage from "./views/Pages/EventPage/EventAddPage";
 import EventWrittenPage from "./views/Pages/EventPage/EventWrittenPage";
 import LoginPage from "./views/Pages/LoginPage";
 import MainPage from "./views/Pages/MainPage";
@@ -23,6 +24,7 @@ function App() {
         <Route path="/product/edit" component={ProductEditPage} />
         <Route exact path="/product/new" component={ProductAddPage} />
         <Route exact path="/event" component={EventPage} />
+        <Route exact path="/event/new" component={EventAddPage} />
         <Route path="/eventwritten" component={EventWrittenPage} />
         <Route exact path="/quiz" component={AttendenceQuizPage} />
         <Route exact path="/ecopoint" component={EcoPointPage} />

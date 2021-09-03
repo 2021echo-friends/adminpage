@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import { useHistory } from 'react-router-dom';
 import Navbar from '../../Navbar/Navbar';
 import Title from '../../Navbar/Title';
 import EditButton from '../../Button/EditButton';
@@ -7,22 +7,26 @@ import CancelButton from '../../Button/CancelButton';
 import '../styles.css';
 
 function ProductEditPage(props) {
-    const {uid, price, name, pointScore, ecopoint} = props.location.state;
-    const [Id, setId] = useState("");
-    const [Image, setImage] = useState("");
-    const [Price, setPrice] = useState("");
-    const [Description, setDescription] = useState("");
+    const token = localStorage.getItem("token");
+    const {num, name, price, description, point, ecopoint} = props.location.state;
+    const [Id, setId] = useState(num);
+    const [Name, setName] = useState(name);
+    const [Price, setPrice] = useState(price);
+    const [Description, setDescription] = useState(description);
+    const [Point, setPoint] = useState(point);
+    const [EcoPoint, setEcoPoint] = useState(ecopoint);
+    const history = useHistory();
 
     useEffect(() => {
-        // axios로 해당 정보 불러오기
+
     }, [])
 
     const onIdHandler = (e) => {
         setId(e.target.value);
     }
 
-    const onImageHandler = (e) => {
-        setImage(e.target.value);
+    const onNameHandler = (e) => {
+      setName(e.target.value);
     }
 
     const onPriceHandler = (e) => {
@@ -31,6 +35,33 @@ function ProductEditPage(props) {
 
     const onDescriptionHandler = (e) => {
         setDescription(e.target.value);
+    }
+
+    const onPointHandler = (e) => {
+      setPoint(e.target.value);
+    }
+
+    const onEcoPointHandler = (e) => {
+      setEcoPoint(e.target.value);
+    }
+
+    const onSubmit = (e) => {
+      e.preventDefault();
+      fetch(`http://54.180.146.9:3001/admin/product/${Id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(response => {
+        return response.json()
+      })
+      .then(response => {
+        console.log(response);
+        alert('삭제했습니다.')
+        history.goBack();
+      })
+      .catch((err) => console.log(err));
     }
 
     return (
@@ -50,14 +81,19 @@ function ProductEditPage(props) {
                       size="70"
                       className="product-id"
                       onChange={onIdHandler}
-                      value={uid}
+                      value={Id}
                       />
                     </td>
                   </tr>
                   <tr>
-                    <td className="td-title">사진</td>
+                    <td className="td-title">상품명</td>
                     <td>
-                      <input type="text" size="70" className="image" onChange={onImageHandler}
+                      <input
+                      type="text"
+                      size="70"
+                      className="productName"
+                      onChange={onNameHandler}
+                      value={Name}
                       />
                     </td>
                   </tr>
@@ -69,19 +105,43 @@ function ProductEditPage(props) {
                       size="70"
                       className="price"
                       onChange={onPriceHandler}
-                      value={price}
+                      value={Price}
                       />
                     </td>
                   </tr>
                   <tr>
-                    <td className="td-title">이름</td>
+                    <td className="td-title">설명</td>
                     <td>
                       <input
                       type="text"
                       size="70"
                       className="description"
                       onChange={onDescriptionHandler}
-                      value={name}
+                      value={Description}
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="td-title">적립포인트</td>
+                    <td>
+                      <input
+                      type="text"
+                      size="70"
+                      className="point"
+                      onChange={onPointHandler}
+                      value={Point}
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="td-title">에코포인트</td>
+                    <td>
+                      <input
+                      type="text"
+                      size="70"
+                      className="EcoPoint"
+                      onChange={onEcoPointHandler}
+                      value={EcoPoint}
                       />
                     </td>
                   </tr>
@@ -89,6 +149,9 @@ function ProductEditPage(props) {
               </table>
               <div className="edit-buttons">  
                     <EditButton />
+                    <div className="deleteButton">
+                      <button onClick={onSubmit}>삭제</button>
+                    </div>
                     <CancelButton />
                 </div>
             </div>

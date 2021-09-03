@@ -19,7 +19,7 @@ function EventPage() {
                 <div className="content">
                     <Searchbar criteria={criteria} />
                     <div className="buttons">
-                        <NewButton />
+                        <NewButton path="/event/new" />
                     </div>  
                     <div className="board_body">
                         <div className="board_header">
@@ -32,7 +32,6 @@ function EventPage() {
                             <Written 
                                 key={data.id}
                                 no={data.num}
-                                like={data.like}
                                 date={data.date}
                                 title={data.title}
                                 body={data.body}
