@@ -2,17 +2,21 @@ import React, { useEffect, useState } from 'react';
 
 import Navbar from '../../Navbar/Navbar';
 import Title from '../../Navbar/Title';
-import '../styles.css';
 import Searchbar from '../../Searchbar/Searchbar';
 import NewButton from '../../Button/NewButton';
 import EditButton from '../../Button/EditButton';
 import DeleteButton from '../../Button/DeleteButton';
+import ProductInfo from './ProductInfo';
+import '../styles.css';
+import "./Product.css";
 
 function ProductPage() {
     const criteria = [ '전체', '물품 아이디', '가격' ];
     const token = localStorage.getItem("token");
-    const [Data, setData] = useState({});
-    useEffect(() => {   
+    const [isDataIn, setIsDataIn] = useState(false);
+    const [productData, setProductData] = useState();
+    console.log(productData);
+    useEffect(() => {
         /*
             물품 받아오기
             fetch("http://54.180.146.9:3001/admin/product", {
@@ -50,13 +54,10 @@ function ProductPage() {
             return response.json();
         })
         .then(response => {
-            console.log(response.data);
-            setData(response.data);
-
+            setProductData(response.data);
+            setIsDataIn(true);
         })
-
     }, [])
-
 
     return (
         <div className="product">
@@ -68,31 +69,31 @@ function ProductPage() {
                     <div className="buttons">
                         <NewButton path='/product/new' />
                     </div>
-                    {
-                        /*
-                    <div className="board_body">
+                    <div className="board_body_product">
                         <div className="board_header">
                             <div className="sub num">No</div>
-                            <div className="sub subTitle">제목</div>
-                            <div className="sub date">작성시간</div>
-                            <div className="sub like">공감</div>
+                            <div className="sub name">상품명</div>
+                            <div className="sub price">가격</div>
+                            <div className="sub point">적립 포인트</div>
+                            <div className="sub ecoPoint">에코 포인트</div>
                         </div>
                         {
-                            productData.map((data) => (
+                            isDataIn ?
+                            productData.map((data, index) => (
                                 <ProductInfo 
-                                    key={data.id}
-                                    uid={data.uid}
-                                    price={data.price}
+                                    key={index}
+                                    num={index + 1}
                                     name={data.name}
-                                    pointScore={data.pointScore}
-                                    ecopoint={data.ecopoint}
+                                    price={data.price}
+                                    point={data.point_value}
+                                    ecopoint={data.eco_value_o3}
                                 />
                             ))
+                            :
+                            ""
                         }
                     </div>
                     <div>이전다음</div> 
-                    */
-                    }
                     {
                     /*
                      Data.map((data) => (
@@ -103,7 +104,6 @@ function ProductPage() {
                     ))
                     */
                     }
-                    <div>이전 다음</div>
                 </div>
             </div>
         </div>
