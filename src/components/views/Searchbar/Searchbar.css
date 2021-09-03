@@ -9,9 +9,9 @@ div.searchbar {
 
 input.search {
     border: 1px solid #ced4da;
-    height: 90%;
     padding-left: 1rem;
     padding-right: 1rem;
+    height: 40px;
 }
 
 div.criteria {
@@ -28,4 +28,10 @@ div.criteria {
     border-radius: 3px;
     padding: 0.5rem;
     margin-left: 1rem;
+}
+
+.searchbar form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
