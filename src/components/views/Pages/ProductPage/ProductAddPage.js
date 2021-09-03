@@ -6,7 +6,6 @@ import Title from '../../Navbar/Title';
 import '../styles.css';
 import NewButton from 'components/views/Button/NewButton';
 import CancelButton from '../../Button/CancelButton';
-import Token from '../../../../token';
 import EcoPointPage from '../EcoPointPage/EcoPointPage';
 
 function ProductAddPage(props) {
@@ -15,7 +14,7 @@ function ProductAddPage(props) {
     const [Description, setDescription] = useState("");
     const [Point, setPoint] = useState(0);
     const [Eco, setEco] = useState(0);
-    const token = Token.token;
+    const token = localStorage.getItem("token");
     const history = useHistory();
 
     useEffect(() => {   
@@ -47,7 +46,8 @@ function ProductAddPage(props) {
       fetch("http://54.180.146.9:3001/admin/product", {
             method: "POST",
             headers: {
-                Authorization: `Bearer ${token}`,
+                "Content-Type" : "application/x-www-form-urlencoded",
+                "Authorization": `Bearer ${token}`,
             },
             body: JSON.stringify({
               name: Name,

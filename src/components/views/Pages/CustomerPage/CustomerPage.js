@@ -35,8 +35,9 @@ function CustomerPage(props) {
 */
 
 function CustomerPage(props) {
-    const criteria = [ '사용자 번호', '아이디', '이메일', '비밀번호', '에코포인트' ];
+    const criteria = [ '전체', '사용자 번호', '아이디', '이메일', '비밀번호', '에코포인트' ];
     const token = localStorage.getItem("token");
+
     useEffect(() => {   
         fetch("http://54.180.146.9:3001/client/user", {
             method: "GET",
@@ -44,26 +45,12 @@ function CustomerPage(props) {
                 "Content-Type" : "application/x-www-form-urlencoded",
                 "Authorization" : `Bearer ${token}`
             }
-            /*
-            method: "POST",
-            headers: {
-                "Content-Type" : "application/x-www-form-urlencoded",
-                "Authorization" : `Bearer ${token}`
-            },
-            body: JSON.stringify({
-                name : "yoon",
-                price : 20000,
-                description : "yonoyonoyn",
-                point_value : 20,
-                eco_value : 25
-            })
-            */
         })
         .then((response) => {
             return response.json();
         })
         .then((response) => {
-            console.log(response.data);
+            console.log(response);
         })
     }, []);
 
