@@ -11,10 +11,13 @@ import '../styles.css';
 import "./Product.css";
 
 function ProductPage() {
-    const criteria = [ '전체', '물품 아이디', '가격' ];
+    const criteria = [ '전체', '상품명' ];
     const token = localStorage.getItem("token");
     const [isDataIn, setIsDataIn] = useState(false);
     const [productData, setProductData] = useState();
+    const [Criterion, setCriterion] = useState(0);
+    const [Content, setContent] = useState("")
+
     useEffect(() => {
         fetch("http://54.180.146.9:3001/admin/product", {
             method: "GET",
@@ -31,6 +34,16 @@ function ProductPage() {
             setIsDataIn(true);
         })
     }, [])
+    
+    const getCriterion = (index) => {
+        setCriterion(index);
+        console.log(Criterion);
+      }
+
+    const getContent = (content) => {
+        setContent(content);
+        console.log(Content);
+    }
 
     return (
         <div className="product">
@@ -38,7 +51,7 @@ function ProductPage() {
             <div className="board">
                 <Title title="물품 관리" />
                 <div className="content">
-                    <Searchbar criteria={criteria} />
+                    <Searchbar criteria={criteria} getCriterion={getCriterion} getContent={getContent} />
                     <div className="buttons">
                         <NewButton path='/product/new' />
                     </div>
@@ -54,23 +67,41 @@ function ProductPage() {
                             isDataIn ?
                             productData.map((data, index) => {
                                 const {_id, name, price, description, point_value, eco_value_o3} = data;
-                                return (
-                                    <ProductInfo 
-                                        key={index}
-                                        id={_id}
-                                        num={index + 1}
-                                        name={name}
-                                        price={price}
-                                        description={description}
-                                        point={point_value}
-                                        ecopoint={eco_value_o3}
-                                    />
-                            )})
+                                if (Criterion === 0) {
+                                    return (
+                                        <ProductInfo 
+                                            key={index}
+                                            id={_id}
+                                            num={index + 1}
+                                            name={name}
+                                            price={price}
+                                            description={description}
+                                            point={point_value}
+                                            ecopoint={eco_value_o3}
+                                        />)
+                                }
+                                if (Criterion === 1) {
+                                    if (name.includes(Content)) {
+                                        return (
+                                            <ProductInfo 
+                                                key={index}
+                                                id={_id}
+                                                num={index + 1}
+                                                name={name}
+                                                price={price}
+                                                description={description}
+                                                point={point_value}
+                                                ecopoint={eco_value_o3}
+                                            />
+                                        )
+                                    }
+                                }
+                            }
+                            )
                             :
                             ""
                         }
                     </div>
-                    <div>이전다음</div> 
                     {
                     /*
                      Data.map((data) => (

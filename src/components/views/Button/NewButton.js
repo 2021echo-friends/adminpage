@@ -7,7 +7,9 @@ function NewButton(props) {
     const history = useHistory();
 
     const onClickHandler = () => {
-        history.push(props.path);
+        if(props.path) {
+            history.push(props.path);
+        }
     }
 
     return (

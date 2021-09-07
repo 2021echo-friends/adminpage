@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+
 import Navbar from '../../Navbar/Navbar';
 import Title from '../../Navbar/Title';
 import CancelButton from '../../Button/CancelButton';
+import AddButton from 'components/views/Button/AddButton';
 import '../styles.css';
 
 function EventAddPage(){
@@ -19,8 +21,7 @@ function EventAddPage(){
         setBody(e.target.value);
     }
 
-    const onSubmit = (e) => {
-      e.preventDefault();
+    const addData = (e) => {
       fetch("http://54.180.146.9:3001/admin/post", {
             method: "POST",
             headers: {
@@ -49,7 +50,6 @@ function EventAddPage(){
         <div className="board">
         <Title title="행사 관리" />
           <div className="content">
-            <form onSubmit={onSubmit}>
               <table className="edit-table">
                 <thead></thead>
                 <tbody>
@@ -80,10 +80,9 @@ function EventAddPage(){
                 </tbody>
               </table>
               <div className="edit-buttons">
-                <button onClick={onSubmit}>등록</button>
+                <AddButton addData={addData} />
+                <CancelButton />
               </div>
-            </form>
-            <CancelButton />
           </div>
         </div>
       </div>
