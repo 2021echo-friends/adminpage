@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import AttendenceQuizPage from "./views/Pages/AttendenceQuizPage/AttendenceQuizPage";
+import AttendenceQuizAddPage from "./views/Pages/AttendenceQuizPage/AttendenceQuizAddPage";
 import CustomerPage from "./views/Pages/CustomerPage/CustomerPage";
 import CustomerEditPage from "./views/Pages/CustomerPage/CustomerEditPage";
 import EcoPointPage from "./views/Pages/EcoPointPage/EcoPointPage";
@@ -27,6 +28,7 @@ function App() {
         <Route exact path="/event/new" component={EventAddPage} />
         <Route path="/eventwritten" component={EventWrittenPage} />
         <Route exact path="/quiz" component={AttendenceQuizPage} />
+        <Route exact path="/quiz/new" component={AttendenceQuizAddPage} />
         <Route exact path="/ecopoint" component={EcoPointPage} />
       </Switch>
     </BrowserRouter>
