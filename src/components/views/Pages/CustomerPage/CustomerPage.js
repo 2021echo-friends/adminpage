@@ -9,7 +9,9 @@ import "./Customer.css";
 function CustomerPage(props) {
     const [isUser, setIsUser] = useState(false);
     const [users, setUsers] = useState([]);
-    const criteria = [ '전체', '사용자 번호', '아이디', '이메일', '비밀번호', '에코포인트' ];
+    const [Criterion, setCriterion] = useState(0);
+    const [Content, setContent] = useState("")
+    const criteria = [ '전체', '닉네임', '이메일' ];
     const token = localStorage.getItem("token");
 
     useEffect(() => {   
@@ -27,7 +29,17 @@ function CustomerPage(props) {
             setUsers(response.data.points);
             setIsUser(true);
         })
-    }, []);
+    }, [Criterion]);
+
+    const getCriterion = (index) => {
+        setCriterion(index);
+        console.log(Criterion);
+      }
+
+    const getContent = (content) => {
+        setContent(content);
+        console.log(Content);
+    }
 
     return (
         <div className="customer">
@@ -35,7 +47,7 @@ function CustomerPage(props) {
             <div className="board">
                 <Title title="고객 관리" />
                 <div className="content">
-                    <Searchbar criteria={criteria} />
+                    <Searchbar criteria={criteria} getCriterion={getCriterion} getContent={getContent} />
                     <div className="board_body_customer">
                         <div className="board_header">
                             <div className="sub num">No</div>
@@ -49,20 +61,51 @@ function CustomerPage(props) {
                             users.map((data, index) => {
                                 if(data.user_id === null) return;
                                 const {user_id : {user_type, _id, nickname, email, password}} = data;
-                                if(user_type === "admin") {
-                                    return false;
-                                } 
-                                return (
-                                <CustomerInfo
-                                    key={_id}
-                                    id={_id}
-                                    no={index}
-                                    username={nickname}
-                                    email={email}
-                                    password={password}
-                                    ecopoint={data.account-data.used_account}
-                                />
-                                )
+                                if(user_type === "admin") return false;
+                                if(Criterion === 0) {
+                                    return (
+                                    <CustomerInfo
+                                        key={_id}
+                                        id={_id}
+                                        no={index}
+                                        username={nickname}
+                                        email={email}
+                                        password={password}
+                                        ecopoint={data.account-data.used_account}
+                                    />
+                                    )
+                                }
+                                if(Criterion === 1) {
+                                    if(data.user_id.nickname.includes(Content)) {
+                                        return (
+                                        <CustomerInfo
+                                            key={_id}
+                                            id={_id}
+                                            no={index}
+                                            username={nickname}
+                                            email={email}
+                                            password={password}
+                                            ecopoint={data.account-data.used_account}
+                                        />
+                                        )
+                                    }
+                                }
+                                if(Criterion === 2) {
+                                    if(data.user_id.email.includes(Content)) {
+                                        return (
+                                        <CustomerInfo
+                                            key={_id}
+                                            id={_id}
+                                            no={index}
+                                            username={nickname}
+                                            email={email}
+                                            password={password}
+                                            ecopoint={data.account-data.used_account}
+                                        />
+                                        )
+                                    }
+                                }
+                                return false;
                             })
                             :
                             ""

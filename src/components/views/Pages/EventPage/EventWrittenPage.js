@@ -1,25 +1,40 @@
+import { useHistory } from "react-router";
+
 import "./EventWrittenPage.css";
 import Navbar from '../../Navbar/Navbar';
 import Title from '../../Navbar/Title';
 import '../styles.css';
-import Searchbar from '../../Searchbar/Searchbar';
-import EditButton from '../../Button/EditButton';
 import DeleteButton from '../../Button/DeleteButton';
 
 const EventWrittenPage = (props) => {
-    const criteria = [ '행사 아이디' ];
-    const {no, date, title, body} = props.location.state;
+    const {id, no, date, title, body} = props.location.state;
+    const token = localStorage.getItem('token');
+    const history = useHistory();
+
+    const deleteData = () => {
+        fetch(`http://54.180.146.9:3001/admin/post?post_id=${id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type" : "application/x-www-form-urlencoded",
+                "Authorization" : `Bearer ${token}`
+            }
+        })
+        .then((response) => {
+            return response.json();
+        })
+        .then((response) => {
+            alert('포스트가 삭제되었습니다.');
+            history.goBack();
+            console.log(response.data);
+        })
+    }
+
     return(
         <div className="event">
             <Navbar selected={3} />
             <div className="board">
-                <Title title="행사 관리" />
+                <Title title="행사 관리" subtitle="행사 관리" />
                 <div className="content">
-                    <Searchbar criteria={criteria} />
-                    <div className="buttons">
-                        <EditButton />
-                        <DeleteButton />
-                    </div>  
                     <div className="body_main_WrittenPage">
                         <div className="board_title">
                             <span>{title}</span>
@@ -31,7 +46,9 @@ const EventWrittenPage = (props) => {
                             {body}
                         </div>
                     </div>
-                    <div>이전다음</div>
+                    <div className="buttons">
+                        <DeleteButton deleteData={deleteData} />
+                    </div>  
                 </div>
             </div>
         </div>

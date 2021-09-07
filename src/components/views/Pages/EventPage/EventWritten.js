@@ -1,9 +1,10 @@
 import {Link} from "react-router-dom";
 
-const EventWritten = ({no, date, title, body}) =>{
+const EventWritten = ({id, no, date, title, body}) =>{
     return(<Link 
     to={{ pathname: `/eventwritten/${no}`,
         state: {
+            id,
             no,
             date,
             title,

@@ -7,20 +7,16 @@ import '../styles.css';
 
 function EventAddPage(){
     const token = localStorage.getItem("token");
-    const [eventTitle, setEventTitle] = useState("");
-    const [eventBody, setEventBody] = useState("");
+    const [EventTitle, setEventTitle] = useState("");
+    const [Body, setBody] = useState("");
     const history = useHistory();
-
-    useEffect(() => {   
-        
-    }, [])
 
     const onTitleHandler = (e) => {
       setEventTitle(e.target.value);
     }
 
     const onBodyHandler = (e) => {
-        setEventBody(e.target.value);
+        setBody(e.target.value);
     }
 
     const onSubmit = (e) => {
@@ -32,8 +28,8 @@ function EventAddPage(){
                 Authorization: `Bearer ${token}`,
             },
             body: JSON.stringify({
-              title: eventTitle,
-              body: eventBody
+              title: EventTitle,
+              body: Body
               })
             })
             .then(response => {
@@ -41,6 +37,7 @@ function EventAddPage(){
             })
             .then(response => {
                 alert('등록이 완료되었습니다.')
+                console.log(response);
                 history.goBack();
             })
             .catch((err) => console.log(err));
@@ -64,7 +61,7 @@ function EventAddPage(){
                       size="70"
                       className="eventTitle"
                       onChange={onTitleHandler}
-                      value={eventTitle}
+                      value={EventTitle}
                       />
                     </td>
                   </tr>
@@ -76,7 +73,7 @@ function EventAddPage(){
                       size="70"
                       className="eventBody"
                       onChange={onBodyHandler}
-                      value={eventBody}
+                      value={Body}
                       />
                     </td>
                   </tr>

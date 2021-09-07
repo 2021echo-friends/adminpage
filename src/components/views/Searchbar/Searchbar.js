@@ -51,11 +51,13 @@ function Searchbar(props) {
     }
 
     const onCriteriaHandler = (e) => {
-        setCriterion(e.target.value);
+      setCriterion(e.target.value);
     }
 
     const onSubmitHandler = (e) => {
       e.preventDefault();
+      props.getCriterion(Criterion);
+      props.getContent(Content);
       console.log(Criterion);
     }
 
