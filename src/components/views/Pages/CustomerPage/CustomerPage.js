@@ -2,8 +2,6 @@ import React, {useEffect, useState} from 'react';
 import Navbar from '../../Navbar/Navbar';
 import Title from '../../Navbar/Title';
 import Searchbar from '../../Searchbar/Searchbar';
-import EditButton from '../../Button/EditButton';
-import DeleteButton from '../../Button/DeleteButton';
 import CustomerInfo from './CustomerInfo';
 import '../styles.css';
 import "./Customer.css";
@@ -59,8 +57,8 @@ function CustomerPage(props) {
                         </div>
                         {
                             Users.map((data, index) => {
-                                if(data.user_id.user_type === "admin") {
-                                    return false;
+                                if (data.user_id.user_type === "admin") {
+                                  return false;
                                 }
                                 if(Criterion === 0) {
                                     return <CustomerInfo
@@ -72,7 +70,7 @@ function CustomerPage(props) {
                                     ecopoint={data.account-data.used_account} />
                                 }
                                 if(Criterion === 1) {
-                                    if(data.user_id.nickname === Content) {
+                                    if(data.user_id.nickname.includes(Content)) {
                                         return <CustomerInfo
                                     key={data.user_id._id}
                                     no={index}
@@ -83,7 +81,7 @@ function CustomerPage(props) {
                                     }
                                 }
                                 if(Criterion === 2) {
-                                    if(data.user_id.email === Content) {
+                                    if(data.user_id.email.includes(Content)) {
                                         return <CustomerInfo
                                     key={data.user_id._id}
                                     no={index}

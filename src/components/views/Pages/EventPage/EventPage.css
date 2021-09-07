@@ -44,7 +44,7 @@
   width: calc(100% - 210px);
 }
 .board_body .date {
-  width: 110px;
+  width: 200px;
 }
 .board_body .sub {
   text-align: center;

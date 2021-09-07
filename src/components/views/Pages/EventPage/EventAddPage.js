@@ -7,13 +7,9 @@ import '../styles.css';
 
 function EventAddPage(){
     const token = localStorage.getItem("token");
-    const [eventTitle, setEventTitle] = useState("");
+    const [EventTitle, setEventTitle] = useState("");
     const [Body, setBody] = useState("");
     const history = useHistory();
-
-    useEffect(() => {   
-        
-    }, [])
 
     const onTitleHandler = (e) => {
       setEventTitle(e.target.value);
@@ -32,7 +28,7 @@ function EventAddPage(){
                 Authorization: `Bearer ${token}`,
             },
             body: JSON.stringify({
-              title: Title,
+              title: EventTitle,
               body: Body
               })
             })
@@ -41,6 +37,7 @@ function EventAddPage(){
             })
             .then(response => {
                 alert('등록이 완료되었습니다.')
+                console.log(response);
                 history.goBack();
             })
             .catch((err) => console.log(err));
@@ -64,7 +61,7 @@ function EventAddPage(){
                       size="70"
                       className="eventTitle"
                       onChange={onTitleHandler}
-                      value={eventTitle}
+                      value={EventTitle}
                       />
                     </td>
                   </tr>
