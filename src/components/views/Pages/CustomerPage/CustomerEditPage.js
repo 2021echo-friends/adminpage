@@ -8,7 +8,7 @@ import CancelButton from '../../Button/CancelButton';
 import '../styles.css';
 
 function CustomerEditPage(props) {
-    const {no, username, email, password, ecopoint} = props.location.state || {};
+    const {no, id, username, email, password, ecopoint} = props.location.state || {};
     const [Nickname, setNickname] = useState(username);
     const [Email, setEmail] = useState(email);
     const [Password, setPassword] = useState(password);
@@ -32,30 +32,22 @@ function CustomerEditPage(props) {
         setEcoPoint(e.target.value);
     }
 
-    const onSubmitHandler = (e) => {
+    const onSubmit = (e) => {
         e.preventDefault();
-
-        fetch("http://54.180.146.9:3001/admin/user", {
-            method: "PUT",
-            headers: {
-                "Content-Type" : "application/x-www-form-urlencoded",
-                "Authorization" : `Bearer ${token}`
-            },
-            body: JSON.stringify({
-                nickname: Nickname,
-                email: Email,
-                password: Password,
-            })
+        fetch(`http://54.180.146.9:3001/admin/user?user_id=${id}`, {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         })
-        .then((response) => {
-            return response.json();
+        .then(response => {
+          return response.json()
         })
-        .then((response) => {
-            console.log(response);
-            history.push('/customer');
-            alert('수정되었습니다.');
+        .then(response => {
+          history.goBack();
         })
-    }
+        .catch((err) => console.log(err));
+      }
 
     return (
         <div className="customer">
@@ -65,7 +57,6 @@ function CustomerEditPage(props) {
                 title="고객 관리"
                 subtitle="고객 정보 수정" />
                 <div className="content">
-                    <form onSubmit={onSubmitHandler}>
                     <table className="edit-table">
                         <thead>
                         </thead>
@@ -112,12 +103,11 @@ function CustomerEditPage(props) {
                             </tr>
                         </tbody>
                     </table>
-                    <div className="edit-buttons">
-                    <EditButton />
-                    </div>
-                    </form>
                     <div className="edit-buttons">  
-                    <CancelButton />
+                        <div className="deleteButton">
+                        <button onClick={onSubmit}>삭제</button>
+                        </div>
+                        <CancelButton />
                     </div>
                 </div>
             </div>

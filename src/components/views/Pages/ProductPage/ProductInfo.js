@@ -1,10 +1,11 @@
 import {Link} from "react-router-dom";
 
-const ProductInfo = ({num, name, price, description, point, ecopoint}) =>{
+const ProductInfo = ({num, id, name, price, description, point, ecopoint}) =>{
     return(<Link 
     to={{ pathname: `/product/edit/${num}`,
         state: {
             num,
+            id,
             name,
             price,
             description,

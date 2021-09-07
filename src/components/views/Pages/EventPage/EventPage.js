@@ -1,16 +1,35 @@
-import React from 'react';
-
+import React, { useEffect, useState } from 'react';
 import Navbar from '../../Navbar/Navbar';
 import Title from '../../Navbar/Title';
-import '../styles.css';
 import Searchbar from '../../Searchbar/Searchbar';
 import NewButton from '../../Button/NewButton';
 import Written from "./EventWritten";
-import { eventWritten as written } from '../../../../totalData';
+import '../styles.css';
 import "./EventPage.css";
 
 function EventPage() {
     const criteria = [ '전체', '행사 아이디' ];
+    const token = localStorage.getItem("token");
+    const [isDataIn, setIsDataIn] = useState(false);
+    const [postData, setPostData] = useState();
+    useEffect(() => {
+        /*
+        fetch("http://54.180.146.9:3001/admin/post", {
+            method: "GET",
+            headers: {
+                "Content-Type" : "application/x-www-form-urlencoded",
+                "Authorization" : `Bearer ${token}`
+            }
+        })
+        .then((response) => {
+            return response.json();
+        })
+        .then((response) => {
+            setPostData(response.data);
+            setIsDataIn(true);
+        })
+        */
+    }, [])
     return (
         <div className="event">
             <Navbar selected={3} />
@@ -28,15 +47,18 @@ function EventPage() {
                             <div className="sub date">작성시간</div>
                         </div>
                         {
-                            written.map((data) => (
-                            <Written 
-                                key={data.id}
-                                no={data.num}
-                                date={data.date}
-                                title={data.title}
-                                body={data.body}
-                            />
+                            isDataIn ?
+                            postData.map((data, index) => (
+                                <Written 
+                                    key={index}
+                                    no={index}
+                                    date={data.date}
+                                    title={data.title}
+                                    body={data.body}
+                                />
                             ))
+                            :
+                            ""
                         }
                     </div>
                     
@@ -47,4 +69,4 @@ function EventPage() {
     )
 }
 
-export default EventPage
+export default EventPage;

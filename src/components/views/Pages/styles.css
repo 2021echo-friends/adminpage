@@ -1,148 +1,143 @@
 body {
-    margin: 0;
+  margin: 0;
 }
 
 div {
-    display: flex;
+  display: flex;
 }
 
 div.board {
-    margin: 2rem;
-    height: 90%;
-    width: 100%;
-    flex-direction: column;
+  margin: 2rem;
+  height: 90%;
+  width: 100%;
+  flex-direction: column;
 }
 
 div.board .content {
-    width: 100%;
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-aroud;
-    flex-direction: column;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-aroud;
+  flex-direction: column;
 }
 
 div.buttons {
-    width: 100%;
-    margin-top: 1rem;
-    justify-content: flex-end;
+  width: 100%;
+  margin-top: 1rem;
+  justify-content: flex-end;
 }
 
 table.edit-table {
-    margin-top: 3rem;
-    border-collapse: collapse;
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;
-    margin-bottom: 2rem;
+  margin-top: 3rem;
+  border-collapse: collapse;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  margin-bottom: 2rem;
 }
 
 table.edit-table td {
-    padding: 1rem;
-    border-top: 1px solid lightgray;
-    border-bottom: 1px solid lightgray;
+  padding: 1rem;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
 }
 
 table.edit-table td.td-title {
-    background-color: gray;
-    color: white;
+  background-color: gray;
+  color: white;
 }
 
 table.edit-table input {
-    border: none;
-    font-size: 15px;
+  border: none;
+  font-size: 15px;
 }
 
 table.edit-table .edit-buttons {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 /************ MainPage ************/
 div.main {
-    display: flex;
-    align-items: center;
-    height: 100vh;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
 }
-
 
 /************ LoginPage ************/
 div.login-background {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 90vh;
 }
 
 div.login {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: fit-content;
-    height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: fit-content;
 }
 
 .login img {
-    width: 200px;
-    height: 200px;
-    margin-right: 2rem;
+  width: 200px;
+  height: 200px;
+  margin-right: 2rem;
 }
 
 .login form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .login .login-button {
-    border: 0px;
-    border-radius: 5px;
-    width: 100%;
-    padding: 10px;
-    color: white;
-    background-color: green;
-    margin-top: 1rem;
+  border: 0px;
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px;
+  color: white;
+  background-color: green;
+  margin-top: 1rem;
 }
-
 
 /************ Attendancepage ************/
 div.attendence-quiz {
-    display: flex;
-    align-items: center;
-    height: 100vh;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
 }
-
 
 /************ CustomerPage ************/
 div.customer {
-    display: flex;
-    align-items: center;
-    height: 100vh;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
 }
 
 /************ EcoPointPage ************/
 div.ecopoint {
-    display: flex;
-    align-items: center;
-    height: 100vh;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
 }
-
 
 /************ EventPage ************/
 div.event {
-    display: flex;
-    align-items: center;
-    height: 100vh;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
 }
-
 
 /************ ProductPage ************/
 div.product {
-    display: flex;
-    align-items: center;
-    height: 100vh;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
 }

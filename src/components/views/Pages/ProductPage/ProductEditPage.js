@@ -8,7 +8,7 @@ import '../styles.css';
 
 function ProductEditPage(props) {
     const token = localStorage.getItem("token");
-    const {num, name, price, description, point, ecopoint} = props.location.state;
+    const {num, id, name, price, description, point, ecopoint} = props.location.state;
     const [Id, setId] = useState(num);
     const [Name, setName] = useState(name);
     const [Price, setPrice] = useState(price);
@@ -47,7 +47,7 @@ function ProductEditPage(props) {
 
     const onSubmit = (e) => {
       e.preventDefault();
-      fetch(`http://54.180.146.9:3001/admin/product/${Id}`, {
+      fetch(`http://54.180.146.9:3001/admin/product?product_id=${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -57,8 +57,6 @@ function ProductEditPage(props) {
         return response.json()
       })
       .then(response => {
-        console.log(response);
-        alert('삭제했습니다.')
         history.goBack();
       })
       .catch((err) => console.log(err));
@@ -148,12 +146,11 @@ function ProductEditPage(props) {
                 </tbody>
               </table>
               <div className="edit-buttons">  
-                    <EditButton />
                     <div className="deleteButton">
                       <button onClick={onSubmit}>삭제</button>
                     </div>
                     <CancelButton />
-                </div>
+              </div>
             </div>
           </div>
       </div>

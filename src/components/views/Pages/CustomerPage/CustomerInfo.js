@@ -1,10 +1,11 @@
 import {Link} from "react-router-dom";
 
-const CustomerInfo = ({no, username, email, password, ecopoint}) =>{
+const CustomerInfo = ({no, id, username, email, password, ecopoint}) =>{
     return(<Link 
     to={{ pathname: `/customer/edit/${no}`,
         state: {
         no,
+        id,
         username,
         email,
         password,

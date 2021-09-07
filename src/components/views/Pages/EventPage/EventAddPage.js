@@ -8,7 +8,7 @@ import '../styles.css';
 function EventAddPage(){
     const token = localStorage.getItem("token");
     const [eventTitle, setEventTitle] = useState("");
-    const [Body, setBody] = useState("");
+    const [eventBody, setEventBody] = useState("");
     const history = useHistory();
 
     useEffect(() => {   
@@ -20,7 +20,7 @@ function EventAddPage(){
     }
 
     const onBodyHandler = (e) => {
-        setBody(e.target.value);
+        setEventBody(e.target.value);
     }
 
     const onSubmit = (e) => {
@@ -32,8 +32,8 @@ function EventAddPage(){
                 Authorization: `Bearer ${token}`,
             },
             body: JSON.stringify({
-              title: Title,
-              body: Body
+              title: eventTitle,
+              body: eventBody
               })
             })
             .then(response => {
@@ -76,7 +76,7 @@ function EventAddPage(){
                       size="70"
                       className="eventBody"
                       onChange={onBodyHandler}
-                      value={Body}
+                      value={eventBody}
                       />
                     </td>
                   </tr>

@@ -16,32 +16,6 @@ function ProductPage() {
     const [isDataIn, setIsDataIn] = useState(false);
     const [productData, setProductData] = useState();
     useEffect(() => {
-        /*
-            물품 받아오기
-            fetch("http://54.180.146.9:3001/admin/product", {
-                method: "GET",
-                headers: {
-                    "Content-Type" : "application/x-www-form-urlencoded",
-                    "Authorization" : `Bearer ${token}`
-                }
-            })
-            
-            물품 추가하기
-            fetch("http://54.180.146.9:3001/admin/product", {
-            method: "POST",
-            headers: {
-                "Content-Type" : "application/json",
-                "Authorization" : `Bearer ${token}`
-            },
-            body: JSON.stringify({
-                name : "yoon test",
-                price : 20000,
-                description : "do test",
-                point_value : 20,
-                eco_value : 250,
-            })
-        })
-        */
         fetch("http://54.180.146.9:3001/admin/product", {
             method: "GET",
             headers: {
@@ -78,17 +52,20 @@ function ProductPage() {
                         </div>
                         {
                             isDataIn ?
-                            productData.map((data, index) => (
-                                <ProductInfo 
-                                    key={index}
-                                    num={index + 1}
-                                    name={data.name}
-                                    price={data.price}
-                                    description={data.description}
-                                    point={data.point_value}
-                                    ecopoint={data.eco_value_o3}
-                                />
-                            ))
+                            productData.map((data, index) => {
+                                const {_id, name, price, description, point_value, eco_value_o3} = data;
+                                return (
+                                    <ProductInfo 
+                                        key={index}
+                                        id={_id}
+                                        num={index + 1}
+                                        name={name}
+                                        price={price}
+                                        description={description}
+                                        point={point_value}
+                                        ecopoint={eco_value_o3}
+                                    />
+                            )})
                             :
                             ""
                         }
