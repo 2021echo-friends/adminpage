@@ -15,7 +15,7 @@ function EventPage() {
     const token = localStorage.getItem("token");
 
     useEffect(() => {
-        fetch("http://54.180.146.9:3001/auth-non/post", {
+        fetch("http://54.180.146.9:3001/auth-non/post?per_page=100", {
             method: "GET",
             headers: {
                 "Content-Type" : "application/x-www-form-urlencoded",
@@ -64,6 +64,7 @@ function EventPage() {
                                     date={data.date_create.substr(0, 19).replace(/T/gi, ' ')}
                                     title={data.title}
                                     body={data.body}
+                                    image={data.body_folder_id}
                                 />
                                 }
                                 if(Criterion === 1) {
@@ -75,6 +76,7 @@ function EventPage() {
                                     date={data.date_create.substr(0, 19).replace(/T/gi, ' ')}
                                     title={data.title}
                                     body={data.body}
+                                    image={data.body_folder_id}
                                 />
                                 }
                                 return false;
