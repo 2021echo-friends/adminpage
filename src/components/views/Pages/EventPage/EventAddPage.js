@@ -22,7 +22,6 @@ function EventAddPage(){
     }
 
     const addData = async (e) => {
-
       const res = await fetch("http://54.180.146.9:3001/admin/post", {
             method: "POST",
             headers: {
