@@ -1,0 +1,44 @@
+.ecoPointBox {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  min-width: 800px;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.ecoPointBox div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: calc((100% - 500px) / 2);
+  height: 100%;
+}
+.ecoPointBox div .line {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  width: 100%;
+  height: 30px;
+  white-space: nowrap;
+}
+.ecoPointBox .left {
+  padding-left: 100px;
+}
+.ecoPointBox .right {
+  padding: 0 30px;
+}
+.ecoPointBox div .line .square {
+  min-width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+#circleCanvas {
+  width: 500px;
+  height: 200px;
+}

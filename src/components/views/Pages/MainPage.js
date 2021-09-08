@@ -1,12 +1,12 @@
 import React, {useEffect} from 'react';
 import Navbar from '../Navbar/Navbar';
 import Title from '../Navbar/Title';
-import './styles.css';
-import './MainPage.css';
 import Chart from './EcoPointPage/Chart';
 import {makeGraph} from '../Pages/EcoPointPage/circleCanvas';
-import {circleData} from "../../../totalData";
+import Circle from '../Pages/EcoPointPage/circleCanvas';
 import "./MainPageSlider";
+import './styles.css';
+import './MainPage.css';
 
 function MainPage(props) {
 
@@ -22,33 +22,7 @@ function MainPage(props) {
                 <Title title="대시보드" />
                 <div className="content">
                     <div className="container big">
-                        <div className="ecoPointBox">
-                            <div className="left">
-                                {circleData[0].title.map((prop, index) => {
-                                    return(
-                                        <div className="line">
-                                            <div className="square" style={
-                                                {backgroundColor: circleData[0].colorWay[index]}
-                                            }></div>
-                                            <span>{prop}</span>
-                                        </div>
-                                    )
-                                })}
-                            </div>
-                            <canvas id="circleCanvas" width="1000px" height="400px"></canvas>
-                            <div className="right">
-                                {circleData[1].title.map((prop, index) => {
-                                    return(
-                                        <div className="line">
-                                            <div className="square" style={
-                                                {backgroundColor: circleData[1].colorWay[index]}
-                                            }></div>
-                                            <span>{prop}</span>
-                                        </div>
-                                    )
-                                })}
-                            </div>
-                        </div>
+                        <Circle />
                     </div>
                     <div className="container slideContainer">
                         <div className="banner">
