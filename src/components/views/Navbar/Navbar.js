@@ -48,7 +48,7 @@ function Navbar(props) {
             <thead>
                 <tr>
                     <td className="logo">
-                        <img alt="logo" src="https://image.flaticon.com/icons/png/512/1598/1598431.png" onClick={onLogoHandler} />
+                        <img alt="logo" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/ecostep2.png?raw=true" onClick={onLogoHandler} />
                      </td>
                 </tr>
             </thead>

@@ -71,7 +71,7 @@ function LoginPage(props) {
     return (
         <div className="login-background">
             <div className="login">
-            <img alt="logo" src="https://image.flaticon.com/icons/png/512/1598/1598431.png"/>
+            <img alt="logo" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/ecostep2.png?raw=true"/>
             <form className={classes.root} noValidate autoComplete="off" onSubmit={onSubmitHandler}>
                 관리자페이지
                 <h1>로그인</h1>

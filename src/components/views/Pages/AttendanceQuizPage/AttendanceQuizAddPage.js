@@ -7,7 +7,7 @@ import CancelButton from '../../Button/CancelButton';
 import AddButton from 'components/views/Button/AddButton';
 import '../styles.css';
 
-function AttendenceQuizAddPage(){
+function AttendanceQuizAddPage(){
     const token = localStorage.getItem("token");
     const [Question, setQuestion] = useState("");
     const [Answer, setAnswer] = useState(0);
@@ -89,4 +89,4 @@ function AttendenceQuizAddPage(){
     );
 }
 
-export default AttendenceQuizAddPage;
+export default AttendanceQuizAddPage;
