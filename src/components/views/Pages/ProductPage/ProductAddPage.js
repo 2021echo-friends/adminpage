@@ -12,7 +12,9 @@ function ProductAddPage() {
     const [Price, setPrice] = useState(0);
     const [Description, setDescription] = useState("");
     const [Point, setPoint] = useState(0);
-    const [EcoPoint, setEcoPoint] = useState(0);
+    const [EcoPointCO2, setEcoPointCO2] = useState(0);
+    const [EcoPointO3, setEcoPointO3] = useState(0);
+    const [EcoPointCH4, setEcoPointCH4] = useState(0);
     const history = useHistory();
 
     useEffect(() => {   
@@ -35,8 +37,14 @@ function ProductAddPage() {
       setPoint(e.target.value);
     }
 
-    const onEcoPointHandler = (e) => {
-      setEcoPoint(e.target.value);
+    const onEcoPointCO2Handler = (e) => {
+      setEcoPointCO2(e.target.value);
+    }
+    const onEcoPointO3Handler = (e) => {
+      setEcoPointO3(e.target.value);
+    }
+    const onEcoPointCH4Handler = (e) => {
+      setEcoPointCH4(e.target.value);
     }
 
     const onSubmit = (e) => {
@@ -52,7 +60,9 @@ function ProductAddPage() {
               price: Price,
               description: Description,
               point_value: Point,
-              eco_value: EcoPoint,
+              eco_value_co2: EcoPointCO2,
+              eco_value_o3: EcoPointO3,
+              eco_value_ch4: EcoPointCH4
               })
             })
             .then(response => {
@@ -124,14 +134,38 @@ function ProductAddPage() {
                     </td>
                   </tr>
                   <tr>
-                    <td className="td-title">에코포인트</td>
+                    <td className="td-title">에코포인트 CO2</td>
                     <td>
                       <input
                       type="text"
                       size="70"
                       className="EcoPoint"
-                      onChange={onEcoPointHandler}
-                      value={EcoPoint}
+                      onChange={onEcoPointCO2Handler}
+                      value={EcoPointCO2}
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="td-title">에코포인트 O3</td>
+                    <td>
+                      <input
+                      type="text"
+                      size="70"
+                      className="EcoPoint"
+                      onChange={onEcoPointO3Handler}
+                      value={EcoPointO3}
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="td-title">에코포인트 CH4</td>
+                    <td>
+                      <input
+                      type="text"
+                      size="70"
+                      className="EcoPoint"
+                      onChange={onEcoPointCH4Handler}
+                      value={EcoPointCH4}
                       />
                     </td>
                   </tr>

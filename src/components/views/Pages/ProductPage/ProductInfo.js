@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 
-const ProductInfo = ({num, id, name, price, description, point, ecopoint}) =>{
+const ProductInfo = ({num, id, name, price, description, point, ecopointCO2, ecopointO3, ecopointCH4}) =>{
     return(<Link 
     to={{ pathname: `/product/edit/${num}`,
         state: {
@@ -10,7 +10,9 @@ const ProductInfo = ({num, id, name, price, description, point, ecopoint}) =>{
             price,
             description,
             point,
-            ecopoint
+            ecopointCO2,
+            ecopointO3,
+            ecopointCH4
         }
     }}>
         <div className="board_content">
@@ -18,7 +20,7 @@ const ProductInfo = ({num, id, name, price, description, point, ecopoint}) =>{
             <div className="sub name">{name}</div>
             <div className="sub price">{price}</div>
             <div className="sub point">{point}</div>
-            <div className="sub ecoPoint">{ecopoint}</div>
+            <div className="sub ecoPoint">{ecopointCO2 + ecopointO3 + ecopointCH4}</div>
         </div>
     </Link>
     );

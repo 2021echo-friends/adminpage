@@ -37,7 +37,6 @@ function EventAddPage(){
             })
             .then(response => {
                 alert('등록이 완료되었습니다.')
-                console.log(response);
                 history.goBack();
             })
             .catch((err) => console.log(err));

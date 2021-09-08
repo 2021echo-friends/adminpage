@@ -53,7 +53,7 @@ function ProductPage() {
                         {
                             isDataIn ?
                             productData.map((data, index) => {
-                                const {_id, name, price, description, point_value, eco_value_o3} = data;
+                                const {_id, name, price, description, point_value, eco_value_co2, eco_value_o3, eco_value_ch4} = data;
                                 return (
                                     <ProductInfo 
                                         key={index}
@@ -63,7 +63,9 @@ function ProductPage() {
                                         price={price}
                                         description={description}
                                         point={point_value}
-                                        ecopoint={eco_value_o3}
+                                        ecopointCO2={eco_value_co2}
+                                        ecopointO3={eco_value_o3}
+                                        ecopointCH4={eco_value_ch4}
                                     />
                             )})
                             :

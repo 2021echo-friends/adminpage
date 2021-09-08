@@ -1,28 +1,40 @@
-import {chartData} from "../../../../totalData";
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 
 const Chart = () => {
-    var highData = 0;
-    chartData.data.forEach((prop) => {
-        if(prop > highData){
-            highData = prop;
-        }
-    })
-    var maxData = Math.round((highData / 9) * 10);
-    let percentData = chartData.data.map((prop) => {
-        return Math.floor((0.97 - (prop / maxData)) * 1000) / 10;
-    })
+    const [isChartData, setIsChartData] = useState(false);
+    const [chartData, setChartData] = useState();
 
     useEffect(() => {
-        var chart = document.getElementsByClassName("chart");
-        for(var i = 0; i < chart.length; i++){
-            chart[i].style.top = percentData[i] + "%";
-        }
-    }, []);
+        fetch("http://54.180.146.9:3001/auth-non/statistics", {
+            method: "GET",
+            headers: {
+                "Content-Type" : "application/x-www-form-urlencoded",
+            }
+        })
+        .then((response) => {
+            return response.json();
+        })
+        .then((response) => {
+            setChartData(response.data);
+            setIsChartData(true);
+        })
+    }, [])
 
-    const reviewPart = () => {
+    const reviewPart = (obj) => {
         const res = [];
-        for(var i = 0; i < 5; i++){
+        var highData = 0;
+        obj.forEach((prop) => {
+            if(prop[1] > highData) highData = prop[1];
+        })
+        var maxData = Math.round((highData / 9) * 10);
+        let percentData = obj.map((prop) => {
+            return Math.floor((0.97 - (prop[1] / maxData)) * 1000) / 10;
+        })
+        // var chart = document.getElementsByClassName("chart");
+        // for(var i = 0; i < chart.length; i++){
+        //     chart[i].style.top = percentData[i] + "%";
+        // }
+        for(var i = 0; i < obj.length; i++){
             res.push(
         <div className="reviewPart">
             <div className="line">
@@ -39,12 +51,23 @@ const Chart = () => {
     return (
         <div className="content ecoContent">
             <div className="reviewShowBox">
-                {reviewPart()}
+                {
+                    isChartData ?
+                    reviewPart(Object.entries(chartData))
+                    :
+                    ""
+                }
             </div>
             <div className="reviewNumBox">
-                {chartData.name.map((prop) => (
-                    <div>{prop}</div>
-                ))}
+                {
+                    isChartData ? 
+                    Object.keys(chartData).map((prop) => {
+                    return(
+                        <div>{prop}</div>
+                    )})
+                    :
+                    ""
+                }
             </div>
         </div>
     )
