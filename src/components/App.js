@@ -30,7 +30,7 @@ function App() {
         <Route path="/eventwritten" component={EventWrittenPage} />
         <Route exact path="/quiz" component={AttendanceQuizPage} />
         <Route exact path="/quiz/new" component={AttendanceQuizAddPage} />
-        <Route exact path="/quiz/edit:id" component={AttendanceQuizEditPage} />
+        <Route path="/quiz/edit" component={AttendanceQuizEditPage} />
         <Route exact path="/ecopoint" component={EcoPointPage} />
       </Switch>
     </BrowserRouter>
