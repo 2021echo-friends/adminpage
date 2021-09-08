@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+
 import Navbar from '../../Navbar/Navbar';
 import Title from '../../Navbar/Title';
-import EditButton from '../../Button/EditButton';
+import DeleteButton from 'components/views/Button/DeleteButton';
 import CancelButton from '../../Button/CancelButton';
 import '../styles.css';
 
@@ -53,8 +54,7 @@ function ProductEditPage(props) {
       setEcoPointCH4(e.target.value);
     }
 
-    const onSubmit = (e) => {
-      e.preventDefault();
+    const deleteData = (e) => {
       fetch(`http://54.180.146.9:3001/admin/product?product_id=${id}`, {
         method: "DELETE",
         headers: {
@@ -178,9 +178,7 @@ function ProductEditPage(props) {
                 </tbody>
               </table>
               <div className="edit-buttons">  
-                    <div className="deleteButton">
-                      <button onClick={onSubmit}>삭제</button>
-                    </div>
+                    <DeleteButton deleteData={deleteData} />
                     <CancelButton />
               </div>
             </div>

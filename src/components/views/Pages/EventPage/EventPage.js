@@ -81,8 +81,6 @@ function EventPage() {
                             })
                         }
                     </div>
-                    
-                    <div>이전다음</div>
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import Navbar from '../../Navbar/Navbar';
 import Title from '../../Navbar/Title';
 import CancelButton from '../../Button/CancelButton';
+import AddButton from 'components/views/Button/AddButton';
 import '../styles.css';
 
 function ProductAddPage() {
@@ -16,10 +17,6 @@ function ProductAddPage() {
     const [EcoPointO3, setEcoPointO3] = useState(0);
     const [EcoPointCH4, setEcoPointCH4] = useState(0);
     const history = useHistory();
-
-    useEffect(() => {   
-        
-    }, [])
 
     const onNameHandler = (e) => {
       setName(e.target.value);
@@ -47,8 +44,7 @@ function ProductAddPage() {
       setEcoPointCH4(e.target.value);
     }
 
-    const onSubmit = (e) => {
-      e.preventDefault();
+    const addData = (e) => {
       fetch("http://54.180.146.9:3001/admin/product", {
             method: "POST",
             headers: {
@@ -81,7 +77,6 @@ function ProductAddPage() {
         <div className="board">
           <Title title="물품 관리" subtitle="물품 신규 등록" />
           <div className="content">
-            <form onSubmit={onSubmit}>
               <table className="edit-table">
                 <thead></thead>
                 <tbody>
@@ -172,10 +167,9 @@ function ProductAddPage() {
                 </tbody>
               </table>
               <div className="edit-buttons">
-                <button onClick={onSubmit}>등록</button>
+                <AddButton addData={addData} />
+                <CancelButton />
               </div>
-            </form>
-            <CancelButton />
           </div>
         </div>
       </div>

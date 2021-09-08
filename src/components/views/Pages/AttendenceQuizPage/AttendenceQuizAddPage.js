@@ -7,30 +7,30 @@ import CancelButton from '../../Button/CancelButton';
 import AddButton from 'components/views/Button/AddButton';
 import '../styles.css';
 
-function EventAddPage(){
+function AttendenceQuizAddPage(){
     const token = localStorage.getItem("token");
-    const [EventTitle, setEventTitle] = useState("");
-    const [Body, setBody] = useState("");
+    const [Question, setQuestion] = useState("");
+    const [Answer, setAnswer] = useState(0);
     const history = useHistory();
 
-    const onTitleHandler = (e) => {
-      setEventTitle(e.target.value);
+    const onQuestionHandler = (e) => {
+      setQuestion(e.target.value);
     }
 
-    const onBodyHandler = (e) => {
-        setBody(e.target.value);
+    const onAnswerHandler = (e) => {
+      setAnswer(e.target.value);
     }
 
     const addData = (e) => {
-      fetch("http://54.180.146.9:3001/admin/post", {
+      fetch("http://54.180.146.9:3001/admin/quiz", {
             method: "POST",
             headers: {
                 "Content-Type" : "application/json",
                 Authorization: `Bearer ${token}`,
             },
             body: JSON.stringify({
-              title: EventTitle,
-              body: Body
+              question: Question,
+              answer: Answer
               })
             })
             .then(response => {
@@ -38,6 +38,7 @@ function EventAddPage(){
             })
             .then(response => {
                 alert('등록이 완료되었습니다.')
+                console.log(response);
                 history.goBack();
             })
             .catch((err) => console.log(err));
@@ -47,32 +48,32 @@ function EventAddPage(){
       <div className="event">
         <Navbar selected={3} />
         <div className="board">
-        <Title title="행사 관리" />
+        <Title title="출석 퀴즈 관리" subtitle="출석 퀴즈 신규 등록" />
           <div className="content">
               <table className="edit-table">
                 <thead></thead>
                 <tbody>
                   <tr>
-                    <td className="td-title">제목</td>
+                    <td className="td-question">퀴즈</td>
                     <td>
                       <input
                       type="text"
                       size="70"
-                      className="eventTitle"
-                      onChange={onTitleHandler}
-                      value={EventTitle}
+                      className="question"
+                      onChange={onQuestionHandler}
+                      value={Question}
                       />
                     </td>
                   </tr>
                   <tr>
-                    <td className="td-title">본문</td>
+                    <td className="td-answer">정답</td>
                     <td>
                       <input
                       type="text"
                       size="70"
-                      className="eventBody"
-                      onChange={onBodyHandler}
-                      value={Body}
+                      className="answer"
+                      onChange={onAnswerHandler}
+                      value={Answer}
                       />
                     </td>
                   </tr>
@@ -88,4 +89,4 @@ function EventAddPage(){
     );
 }
 
-export default EventAddPage;
+export default AttendenceQuizAddPage;

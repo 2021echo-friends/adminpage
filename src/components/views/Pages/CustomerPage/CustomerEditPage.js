@@ -6,6 +6,7 @@ import Title from '../../Navbar/Title';
 import EditButton from '../../Button/EditButton';
 import CancelButton from '../../Button/CancelButton';
 import '../styles.css';
+import DeleteButton from 'components/views/Button/DeleteButton';
 
 function CustomerEditPage(props) {
     const {no, id, username, email, password, ecopoint} = props.location.state || {};
@@ -32,8 +33,7 @@ function CustomerEditPage(props) {
         setEcoPoint(e.target.value);
     }
 
-    const onSubmit = (e) => {
-        e.preventDefault();
+    const deleteData = (e) => {
         fetch(`http://54.180.146.9:3001/admin/user?user_id=${id}`, {
           method: "DELETE",
           headers: {
@@ -103,10 +103,8 @@ function CustomerEditPage(props) {
                             </tr>
                         </tbody>
                     </table>
-                    <div className="edit-buttons">  
-                        <div className="deleteButton">
-                        <button onClick={onSubmit}>삭제</button>
-                        </div>
+                    <div className="edit-buttons">
+                        <DeleteButton deleteData={deleteData} />
                         <CancelButton />
                     </div>
                 </div>
