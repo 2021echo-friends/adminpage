@@ -62,11 +62,12 @@ function ProductPage() {
                             <div className="sub price">가격</div>
                             <div className="sub point">적립 포인트</div>
                             <div className="sub ecoPoint">에코 포인트</div>
+                            <div className="sub count">판매량</div>
                         </div>
                         {
                             isDataIn ?
                             productData.map((data, index) => {
-                                const {_id, name, price, description, point_value, eco_value_co2, eco_value_o3, eco_value_ch4} = data;
+                                const {_id, name, price, description, point_value, eco_value_co2, eco_value_o3, eco_value_ch4, cnt} = data;
                                 if (Criterion === 0) {
                                 return (
                                     <ProductInfo 
@@ -80,6 +81,7 @@ function ProductPage() {
                                         ecopointCO2={eco_value_co2}
                                         ecopointO3={eco_value_o3}
                                         ecopointCH4={eco_value_ch4}
+                                        cnt={cnt}
                                     />
                                 )
                                 }
@@ -97,6 +99,7 @@ function ProductPage() {
                                         ecopointCO2={eco_value_co2}
                                         ecopointO3={eco_value_o3}
                                         ecopointCH4={eco_value_ch4}
+                                        cnt={cnt}
                                     />
                                     )
                                     }

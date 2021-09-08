@@ -20,11 +20,15 @@
 }
 .reviewShowBox .reviewPart {
   display: flex;
+  position: relative;
   justify-content: center;
   width: 20%;
   height: 100%;
   background: #fff;
   overflow: hidden;
+}
+.reviewShowBox .reviewPart:hover {
+  background: rgba(200, 200, 200, 0.1) !important;
 }
 .reviewShowBox .reviewPart .line {
   display: flex;
@@ -53,6 +57,20 @@
   width: 2px;
   height: 100%;
   background: #49cb5c;
+}
+.reviewShowBox .reviewPart .infoBox {
+  display: none;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  top: 10px;
+  right: 10px;
+  width: auto;
+  padding: 0 10px;
+  height: 30px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.25);
 }
 .reviewNumBox {
   display: flex;

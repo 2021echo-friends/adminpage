@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import { circleData as data } from "../../../../totalData";
 import "./circle.css";
 
@@ -30,38 +30,72 @@ export const makeGraph = (id, idx, x, y) => {
 }
 
 export const Circle = () => {
+    const [isProductData, setIsProductData] = useState(false);
+    const [productData, setProductData] = useState();
+    const token = localStorage.getItem("token");
+
     useEffect(() => {
         makeGraph("circleCanvas", 0, 195, 195);
         makeGraph("circleCanvas", 1, 795, 195);
+
+        fetch("http://54.180.146.9:3001/admin/product", {
+            method: "GET",
+            headers: {
+                "Content-Type" : "application/x-www-form-urlencoded",
+                "Authorization" : `Bearer ${token}`
+            }
+        })
+        .then((response) => {
+            return response.json();
+        })
+        .then((response) => {
+            setProductData(response.data.sort((a, b) => {
+                return b.cnt - a.cnt;
+            }));
+            setIsProductData(true);
+        })
     }, []);
+
     return (
         <div className="ecoPointBox">
             <div className="left">
                 <div className="line">2020년 제품 판매량</div>
-                {data[0].title.map((prop, index) => {
-                    return(
-                        <div className="line">
-                            <div className="square" style={
-                                {backgroundColor: data[0].colorWay[index]}
-                            }></div>
-                            <span>{prop}</span>
-                        </div>
-                    )
-                })}
+                {
+                    isProductData ? 
+                    productData.map((prop, index) => {
+                        if(index >= 5) return;
+                        return (
+                            <div className="line">
+                                <div className="square" style={
+                                    {backgroundColor: data[0].colorWay[index]}
+                                }></div>
+                                <span>{prop.name}</span>
+                            </div>
+                        )
+                    })
+                    :
+                    ""
+                }
             </div>
             <canvas id="circleCanvas" width="1000px" height="400px"></canvas>
             <div className="right">
                 <div className="line">2021년 제품 판매량</div>
-                {data[1].title.map((prop, index) => {
-                    return(
-                        <div className="line">
-                            <div className="square" style={
-                                {backgroundColor: data[1].colorWay[index]}
-                            }></div>
-                            <span>{prop}</span>
-                        </div>
-                    )
-                })}
+                {
+                    isProductData ? 
+                    productData.map((prop, index) => {
+                        if(index >= 5) return;
+                        return (
+                            <div className="line">
+                                <div className="square" style={
+                                    {backgroundColor: data[1].colorWay[index]}
+                                }></div>
+                                <span>{prop.name}</span>
+                            </div>
+                        )
+                    })
+                    :
+                    ""
+                }
             </div>
         </div>
     )

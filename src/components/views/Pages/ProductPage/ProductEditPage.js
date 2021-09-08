@@ -9,7 +9,7 @@ import '../styles.css';
 
 function ProductEditPage(props) {
     const token = localStorage.getItem("token");
-    const {num, id, name, price, description, point, ecopointCO2, ecopointO3, ecopointCH4} = props.location.state;
+    const {num, id, name, price, description, point, ecopointCO2, ecopointO3, ecopointCH4, cnt} = props.location.state;
     const [Id, setId] = useState(num);
     const [Name, setName] = useState(name);
     const [Price, setPrice] = useState(price);
@@ -172,6 +172,17 @@ function ProductEditPage(props) {
                       className="EcoPoint"
                       onChange={onEcoPointCH4Handler}
                       value={EcoPointCH4}
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="td-title">판매량</td>
+                    <td>
+                      <input
+                      type="text"
+                      size="70"
+                      className="count"
+                      value={cnt}
                       />
                     </td>
                   </tr>

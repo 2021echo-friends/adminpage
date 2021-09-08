@@ -32,13 +32,14 @@ const Chart = () => {
         })
         for(var i = 0; i < obj.length; i++){
             res.push(
-        <div className="reviewPart">
+        <div className={"reviewPart rev" + i}>
             <div className="line">
                 <div className="chart" style={{top : percentData[i] + "%"}}>
                     <div className="point"></div>
                     <div className="lineBar"></div>
                 </div>
             </div>
+            <div className="infoBox">{obj[i][1]}</div>
         </div>);
         }
         return res;
@@ -67,7 +68,23 @@ const Chart = () => {
             </div>
         </div>
     )
-
 }
+
+var reviewPart = document.getElementsByClassName("reviewPart");
+var infoBox = document.getElementsByClassName("infoBox");
+var infoBoxNum = 0;
+setTimeout(() => {
+    for(var i = 0; i < reviewPart.length; i++){
+        reviewPart[i].addEventListener('mouseover', (prop) => {
+            if(prop.target.className.slice(0, 4) != "revi") return;
+            infoBoxNum = prop.target.className.slice(14);
+            infoBox[infoBoxNum].style.display = "flex";
+        });
+        reviewPart[i].addEventListener('mouseout', (prop) => {
+            if(prop.target.className.slice(0, 4) != "revi") return;
+            infoBox[infoBoxNum].style.display = "none";
+        });
+    }
+}, 500)
 
 export default Chart;
