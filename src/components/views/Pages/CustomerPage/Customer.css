@@ -17,6 +17,9 @@
 .board_body_customer a:hover {
   background-color: #eee;
 }
+.board_body_customer .board_header {
+  font-weight: bold;
+}
 .board_body_customer .board_header,
 .board_body_customer .board_content {
   display: flex;

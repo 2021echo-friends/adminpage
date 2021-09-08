@@ -16,6 +16,10 @@
 .board_body_product a:hover {
   background-color: #eee;
 }
+
+.board_body_product .board_header {
+  font-weight: bold;
+}
 .board_body_product .board_header,
 .board_body_product .board_content {
   display: flex;
