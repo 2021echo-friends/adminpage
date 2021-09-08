@@ -6,6 +6,7 @@ import './MainPage.css';
 import Chart from './EcoPointPage/Chart';
 import {makeGraph} from '../Pages/EcoPointPage/circleCanvas';
 import {circleData} from "../../../totalData";
+import "./MainPageSlider";
 
 function MainPage(props) {
 
@@ -13,6 +14,7 @@ function MainPage(props) {
         makeGraph("circleCanvas", 0, 195, 195);
         makeGraph("circleCanvas", 1, 795, 195);
     }, []);
+
     return (
         <div className="main">
             <Navbar />
@@ -48,8 +50,23 @@ function MainPage(props) {
                             </div>
                         </div>
                     </div>
-                    <div className="container">
-                        
+                    <div className="container slideContainer">
+                        <div className="banner">
+                            <div className="img_container">
+                                <div className="bannerBox">
+                                    <img className="bannerImg" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat1.jpg?raw=true" />
+                                </div>
+                                <div className="bannerBox">
+                                    <img className="bannerImg" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat2.jpg?raw=true" />
+                                </div>
+                                <div className="bannerBox">
+                                    <img className="bannerImg" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat3.jpg?raw=true" />
+                                </div>
+                                <div className="bannerBox">
+                                    <img className="bannerImg" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat4.jpg?raw=true" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div className="container">
                         <Chart />
