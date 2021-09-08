@@ -11,6 +11,7 @@ function EventAddPage(){
     const token = localStorage.getItem("token");
     const [EventTitle, setEventTitle] = useState("");
     const [Body, setBody] = useState("");
+    const [DataId, setDataId] = useState("")
     const history = useHistory();
 
     const onTitleHandler = (e) => {
@@ -30,11 +31,42 @@ function EventAddPage(){
             },
             body: JSON.stringify({
               title: EventTitle,
-              body: Body
+              body: Body,
+              attachment_folder_id: DataId,
+              body_folder_id: DataId,
               })
             })
+            .then(response => {
+              return response.json()
+          })
+          .then(response => {
+              alert('등록이 완료되었습니다.')
+              console.log(response);
+              history.goBack();
+          })
+    }
 
-            return res;
+    const uploadFile = () => {
+      const file = document.getElementById('upload-file');
+      const formData = new FormData();
+      formData.append('files', file);
+
+      //console.log(file.files[0]);
+      fetch("http://54.180.146.9:3001/auth-non/file?counts=1", {
+        method: "POST",
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+            body: formData,
+            })
+            .then(response => {
+              return response.json()
+          })
+          .then(response => {
+            alert('사진 등록이 완료되었습니다.');
+            console.log(response);
+            setDataId(response.data.folder_id);
+        })
     }
 
     return (
@@ -68,6 +100,16 @@ function EventAddPage(){
                       onChange={onBodyHandler}
                       value={Body}
                       />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="td-title">파일 업로드</td>
+                    <td>
+                      <input
+                      type="file"
+                      id="upload-file"
+                      />
+                      <button onClick={uploadFile}>완료</button>
                     </td>
                   </tr>
                 </tbody>

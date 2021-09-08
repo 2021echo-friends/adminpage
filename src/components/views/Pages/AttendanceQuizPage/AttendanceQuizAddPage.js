@@ -54,7 +54,7 @@ function AttendanceQuizAddPage(){
                 <thead></thead>
                 <tbody>
                   <tr>
-                    <td className="td-question">퀴즈</td>
+                    <td className="td-title">퀴즈</td>
                     <td>
                       <input
                       type="text"
@@ -66,7 +66,7 @@ function AttendanceQuizAddPage(){
                     </td>
                   </tr>
                   <tr>
-                    <td className="td-answer">정답</td>
+                    <td className="td-title">정답</td>
                     <td>
                       <input
                       type="text"
