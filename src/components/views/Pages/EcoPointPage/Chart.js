@@ -30,15 +30,11 @@ const Chart = () => {
         let percentData = obj.map((prop) => {
             return Math.floor((0.97 - (prop[1] / maxData)) * 1000) / 10;
         })
-        // var chart = document.getElementsByClassName("chart");
-        // for(var i = 0; i < chart.length; i++){
-        //     chart[i].style.top = percentData[i] + "%";
-        // }
         for(var i = 0; i < obj.length; i++){
             res.push(
         <div className="reviewPart">
             <div className="line">
-                <div className="chart">
+                <div className="chart" style={{top : percentData[i] + "%"}}>
                     <div className="point"></div>
                     <div className="lineBar"></div>
                 </div>

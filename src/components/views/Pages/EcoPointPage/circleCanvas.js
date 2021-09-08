@@ -37,7 +37,7 @@ export const Circle = () => {
     return (
         <div className="ecoPointBox">
             <div className="left">
-                <div className="line">2020년 환경오염도</div>
+                <div className="line">2020년 제품 판매량</div>
                 {data[0].title.map((prop, index) => {
                     return(
                         <div className="line">
@@ -51,7 +51,7 @@ export const Circle = () => {
             </div>
             <canvas id="circleCanvas" width="1000px" height="400px"></canvas>
             <div className="right">
-                <div className="line">2021년 환경오염도</div>
+                <div className="line">2021년 제품 판매량</div>
                 {data[1].title.map((prop, index) => {
                     return(
                         <div className="line">

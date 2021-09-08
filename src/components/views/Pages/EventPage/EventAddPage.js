@@ -21,8 +21,9 @@ function EventAddPage(){
         setBody(e.target.value);
     }
 
-    const addData = (e) => {
-      fetch("http://54.180.146.9:3001/admin/post", {
+    const addData = async (e) => {
+
+      const res = await fetch("http://54.180.146.9:3001/admin/post", {
             method: "POST",
             headers: {
                 "Content-Type" : "application/json",
@@ -33,14 +34,8 @@ function EventAddPage(){
               body: Body
               })
             })
-            .then(response => {
-                return response.json()
-            })
-            .then(response => {
-                alert('등록이 완료되었습니다.')
-                history.goBack();
-            })
-            .catch((err) => console.log(err));
+
+            return res;
     }
 
     return (

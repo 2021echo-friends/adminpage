@@ -10,7 +10,7 @@ function EcoPointPage() {
         <div className="ecopoint">
             <Navbar selected={5} />
             <div className="board">
-                <Title title="환경 오염도" />
+                <Title title="제품 판매량" />
                 <div className="content ecoContent">
                     <Circle />
                 </div>
