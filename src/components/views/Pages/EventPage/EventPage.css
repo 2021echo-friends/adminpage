@@ -16,6 +16,7 @@
 }
 .board_body .board_header {
   padding: 0px 20px;
+  font-weight: bold;
 }
 .board_body a:hover {
   background-color: #eee;
