@@ -2,7 +2,7 @@ import {Link} from "react-router-dom";
 
 const QuizInfo = ({id, no, question, answer}) =>{
     return(<Link 
-    to={{ pathname: `/quiz/${no}`,
+    to={{ pathname: `/quiz/edit/${no}`,
         state: {
             id,
             no,

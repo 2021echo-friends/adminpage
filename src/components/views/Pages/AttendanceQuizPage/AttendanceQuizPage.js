@@ -6,9 +6,9 @@ import '../styles.css';
 import Searchbar from '../../Searchbar/Searchbar';
 import NewButton from '../../Button/NewButton';
 import QuizInfo from './QuizInfo';
-import './AttendenceQuizPage.css';
+import './AttendanceQuizPage.css';
 
-function AttendenceQuizPage() {
+function AttendanceQuizPage() {
     const criteria = [ '퀴즈 아이디' ];
     const [Quizes, setQuizes] = useState([]);
     const [Criterion, setCriterion] = useState(0);
@@ -88,4 +88,4 @@ function AttendenceQuizPage() {
     )
 }
 
-export default AttendenceQuizPage
+export default AttendanceQuizPage
