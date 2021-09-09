@@ -42,29 +42,29 @@ Project Management : npm
 
 ### 관리자 페이지
 
-* 로그인 페이지<br/>
+#### * 로그인 페이지<br/>
 <img src="./imgs/login.png" width="400" height="auto" />
 
-* 메인 페이지<br/>
+#### * 메인 페이지<br/>
 <img src="./imgs/mainpage.jpg" width="400" height="auto" />
 
-* 고객 관리 페이지<br/>
+#### * 고객 관리 페이지<br/>
 <img src="./imgs/customerMain.jpg" width="400" height="auto" /> <img src="./imgs/customerEdit.jpg" width="400" height="auto" />
 
-* 물품 관리 페이지<br/>
+#### * 물품 관리 페이지<br/>
 <img src="./imgs/productMain.jpg" width="400" height="auto" /> <img src="./imgs/productAdd.jpg" width="400" height="auto" />
 <img src="./imgs/productEdit.jpg" width="400" height="auto" />
 
 
-* 행사 관리 페이지<br/>
+#### * 행사 관리 페이지<br/>
 <img src="./imgs/eventMain.jpg" width="400" height="auto" /> <img src="./imgs/eventAdd.jpg" width="400" height="auto" />
 
 
-* 출석 퀴즈 관리 페이지<br/>
+#### * 출석 퀴즈 관리 페이지<br/>
 <img src="./imgs/quizMain.jpg" width="400" height="auto" />
 
 
-* 에코 포인트 현황 페이지<br/>
+#### * 에코 포인트 현황 페이지<br/>
 <img src="./imgs/ecoPointMain.jpg" width="400" height="auto" />
 
 
