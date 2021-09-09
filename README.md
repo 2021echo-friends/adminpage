@@ -7,6 +7,7 @@
 관리자 페이지 README입니다.<br/>
 <a href="https://github.com/2021echo-friends"> EcoStep Organization </a>
 
+
 ### 개발 일정
 
 7월 15일 주제 선정 및 첫 회의<br/>
@@ -33,32 +34,40 @@ Project Management : npm
 3. 박세찬
    BackEnd - 데이터베이스 구축 및 API 구현
 
+
 ### 관리자 페이지
 
-[ ] 로그인 페이지
+* 로그인 페이지
 ![login](./imgs/login.png)
 
-[ ] 메인 페이지
+
+* 메인 페이지
 ![main](./imgs/mainpage.jpg)
 
-[ ] 고객 관리 페이지
+
+* 고객 관리 페이지
 ![customer](./imgs/customerMain.jpg)
 ![customer](./imgs/customerAdd.jpg)
 ![customer](./imgs/customerEdit.jpg)
 
-[ ] 물품 관리 페이지
+
+* 물품 관리 페이지
 ![product](./imgs/productMain.jpg)
 ![product](./imgs/productAdd.jpg)
 ![product](./imgs/productEdit.jpg)
 
-[ ] 행사 관리 페이지
+
+* 행사 관리 페이지
 ![event](./imgs/eventMain.jpg)
 ![event](./imgs/eventAdd.jpg)
 
-[ ] 출석 퀴즈 관리 페이지
+
+* 출석 퀴즈 관리 페이지
 ![quiz](./imgs/quizMain.jpg)
 
-[ ] 에코 포인트 현황 페이지
+
+* 에코 포인트 현황 페이지
 ![ecopoint](./imgs/ecoPointMain.jpg)
+
 
 ### 해결했던 문제들 및 이슈
