@@ -43,34 +43,32 @@ Project Management : npm
 ### 관리자 페이지
 
 * 로그인 페이지
-<img src="./imgs/login.png" width="300" height="auto" />
+<img src="./imgs/login.png" width="400" height="auto" />
 
 * 메인 페이지
-![main](./imgs/mainpage.jpg)
-
+<img src="./imgs/mainpage.jpg" width="400" height="auto" />
 
 * 고객 관리 페이지
-![customer](./imgs/customerMain.jpg)
-![customer](./imgs/customerEdit.jpg)
-
+<img src="./imgs/customerMain.jpg" width="400" height="auto" />
+<img src="./imgs/customerEdit.jpg" width="400" height="auto" />
 
 * 물품 관리 페이지
-![product](./imgs/productMain.jpg)
-![product](./imgs/productAdd.jpg)
-![product](./imgs/productEdit.jpg)
+<img src="./imgs/productMain.jpg" width="400" height="auto" />
+<img src="./imgs/productAdd.jpg" width="400" height="auto" />
+<img src="./imgs/productEdit.jpg" width="400" height="auto" />
 
 
 * 행사 관리 페이지
-![event](./imgs/eventMain.jpg)
-![event](./imgs/eventAdd.jpg)
+<img src="./imgs/eventMain.jpg" width="400" height="auto" />
+<img src="./imgs/eventAdd.jpg" width="400" height="auto" />
 
 
 * 출석 퀴즈 관리 페이지
-![quiz](./imgs/quizMain.jpg)
+<img src="./imgs/quizMain.jpg" width="400" height="auto" />
 
 
 * 에코 포인트 현황 페이지
-![ecopoint](./imgs/ecoPointMain.jpg)
+<img src="./imgs/ecoPointMain.jpg" width="400" height="auto" />
 
 
 ### 해결했던 문제들 및 이슈
