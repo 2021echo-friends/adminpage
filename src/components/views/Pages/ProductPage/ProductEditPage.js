@@ -65,7 +65,7 @@ function ProductEditPage(props) {
         return response.json()
       })
       .then(response => {
-        alert('삭제가 완료되었습니다.').
+        alert('삭제가 완료되었습니다.');
         history.goBack();
       })
       .catch((err) => console.log(err));

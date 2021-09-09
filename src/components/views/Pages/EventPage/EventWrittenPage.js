@@ -40,7 +40,7 @@ const EventWrittenPage = (props) => {
             return response.json();
         })
         .then((response) => {
-            alert('삭제가 완료되었습니다.').
+            alert('삭제가 완료되었습니다.');
             history.goBack();
             console.log(response.data);
         })

@@ -22,6 +22,7 @@ function Navbar(props) {
     }
 
     const onLogoutHandler = () => {
+        localStorage.removeItem("token");
         props.history.push("/");
     }
 
