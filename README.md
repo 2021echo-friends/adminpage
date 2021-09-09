@@ -26,12 +26,10 @@ Project Management : npm
 ### 팀원 구성 및 담당
 
 1. 최윤석
-
--
+   -
 
 2. 김주영
-
--
+   FrontEnd - UI/UX 디자인 및 구현
 
 3. 박세찬
    BackEnd - 데이터베이스 구축 및 API 구현
