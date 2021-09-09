@@ -6,6 +6,7 @@
 
 관리자 페이지 README입니다.<br/>
 <a href="https://github.com/2021echo-friends"> EcoStep Organization </a>
+시연영상
 
 
 ### 개발 일정
@@ -15,11 +16,11 @@
 
 ### 기술 스택
 
-FrontEnd
+__FrontEnd__
 Language : HTML, CSS, Javascript
 Library : React
 
-BackEnd
+__BackEnd__
 Language : Javascript
 Server : Ubuntu
 Project Management : npm
@@ -42,8 +43,7 @@ Project Management : npm
 ### 관리자 페이지
 
 * 로그인 페이지
-![login](./imgs/login.png)
-
+<img src="./imgs/login.png" width="300" height="auto" />
 
 * 메인 페이지
 ![main](./imgs/mainpage.jpg)
@@ -74,3 +74,5 @@ Project Management : npm
 
 
 ### 해결했던 문제들 및 이슈
+
+
