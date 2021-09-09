@@ -15,19 +15,19 @@ const EventWrittenPage = (props) => {
     const history = useHistory();
 
     useEffect(() => {
-        fetch(`http://54.180.146.9:3001/auth-non/file?folder_id=${image}&idx=0`, {
-            method: "GET",
-            headers: {
-            }
-        })
-        .then((response) => {
-            return response.json();
-        })
-        .then((response) => {
-            console.log(response.data);
-            setBoardImage(response.data);
-            setIsBoardImage(true);
-        })
+        // fetch(`http://54.180.146.9:3001/auth-non/file?folder_id=${image}&idx=0`, {
+        //     method: "GET",
+        //     headers: {
+        //     }
+        // })
+        // .then((response) => {
+        //     return response.json();
+        // })
+        // .then((response) => {
+        //     console.log(response.data);
+        //     setBoardImage(response.data);
+        //     setIsBoardImage(true);
+        // })
     }, [])
 
     const deleteData = () => {
@@ -65,19 +65,16 @@ const EventWrittenPage = (props) => {
                             {body}
                         </div>
                         <div className="board_image">
-                            {
-                            // isBoardImage ?
-                            // boardImage
-                            // :
-                            // ""
-                            }
+                            <img 
+                            src={`http://54.180.146.9:3001/auth-non/file?folder_id=${image}&idx=0`}
+                            alt='event-img'
+                            width='100%' />
                         </div>
                     </div>
                     <div className="buttons">
                         <DeleteButton deleteData={deleteData} />
                         <CancelButton />
                     </div>  
-                    </div>
                 </div>
             </div>
         </div>
