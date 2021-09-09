@@ -45,3 +45,6 @@
 .body_main_WrittenPage .buttons {
   justify-content: center;
 }
+.body_main_WrittenPage .board_img {
+  margin-top: 1rem;
+}

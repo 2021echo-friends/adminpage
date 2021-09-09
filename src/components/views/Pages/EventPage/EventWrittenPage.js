@@ -62,13 +62,13 @@ const EventWrittenPage = (props) => {
                             <span>No{no} {date}</span>
                         </div>
                         <div className="board_body">
+                            {console.log(image)}
                             {body}
-                        </div>
-                        <div className="board_image">
                             <img 
+                            className="board_img"
                             src={`http://54.180.146.9:3001/auth-non/file?folder_id=${image}&idx=0`}
                             alt='event-img'
-                            width='100%' />
+                            width='50%' />
                         </div>
                     </div>
                     <div className="buttons">

@@ -67,6 +67,7 @@ function EventAddPage(){
           .then(response => {
             alert('사진 등록이 완료되었습니다.');
             setDataId(response.data.folder_id);
+            console.log(response);
         })
     }
 
