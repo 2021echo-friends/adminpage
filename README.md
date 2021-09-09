@@ -5,7 +5,7 @@
 친환경 제품 구매 및 퀴즈 풀기를 통한 환경 보호 시스템
 
 관리자 페이지 README입니다.<br/>
-<a href="https://github.com/2021echo-friends"> EcoStep Organization </a>
+<a href="https://github.com/2021echo-friends"> EcoStep Organization </a><br/>
 시연영상
 
 
@@ -16,13 +16,13 @@
 
 ### 기술 스택
 
-__FrontEnd__
-Language : HTML, CSS, Javascript
+__FrontEnd__<br/>
+Language : HTML, CSS, Javascript<br/>
 Library : React
 
-__BackEnd__
-Language : Javascript
-Server : Ubuntu
+__BackEnd__<br/>
+Language : Javascript<br/>
+Server : Ubuntu<br/>
 Project Management : npm
 
 ### 팀원 구성 및 담당
