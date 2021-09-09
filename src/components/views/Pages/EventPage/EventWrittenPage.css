@@ -38,7 +38,10 @@
 .body_main_WrittenPage .board_body {
   width: 100%;
   min-height: 200px;
-  height: 100%;
+  height: fit-content;
   padding: 20px;
   white-space: pre-wrap;
+}
+.body_main_WrittenPage .buttons {
+  justify-content: center;
 }

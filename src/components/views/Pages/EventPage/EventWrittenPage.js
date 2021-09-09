@@ -5,6 +5,7 @@ import Navbar from '../../Navbar/Navbar';
 import Title from '../../Navbar/Title';
 import '../styles.css';
 import DeleteButton from '../../Button/DeleteButton';
+import CancelButton from '../../Button/CancelButton';
 
 const EventWrittenPage = (props) => {
     const {id, no, date, title, body} = props.location.state;
@@ -45,10 +46,11 @@ const EventWrittenPage = (props) => {
                         <div className="board_body">
                             {body}
                         </div>
-                    </div>
                     <div className="buttons">
                         <DeleteButton deleteData={deleteData} />
+                        <CancelButton />
                     </div>  
+                    </div>
                 </div>
             </div>
         </div>

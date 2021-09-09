@@ -15,7 +15,7 @@ function EventPage() {
     const token = localStorage.getItem("token");
 
     useEffect(() => {
-        fetch("http://54.180.146.9:3001/auth-non/post", {
+        fetch("http://54.180.146.9:3001/auth-non/post?per_page=100", {
             method: "GET",
             headers: {
                 "Content-Type" : "application/x-www-form-urlencoded",
