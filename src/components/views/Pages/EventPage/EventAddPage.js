@@ -41,7 +41,7 @@ function EventAddPage(){
             })
             .then((response) => {
               console.log(response);
-              alert('행사 등록이 완료되었습니다.')
+              alert('등록이 완료되었습니다.')
               history.goBack();
             })
             .catch((err) => {

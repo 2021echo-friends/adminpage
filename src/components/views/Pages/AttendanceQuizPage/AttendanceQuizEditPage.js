@@ -45,7 +45,7 @@ function AttendanceQuizEditPage(props) {
             <div className="board">
                 <Title 
                 title="출석 퀴즈 관리"
-                subtitle="출석 퀴즈 수정" />
+                subtitle="출석 퀴즈 상세 정보" />
                 <div className="content">
                     <table className="edit-table">
                         <thead>

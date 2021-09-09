@@ -44,6 +44,7 @@ function CustomerEditPage(props) {
           return response.json()
         })
         .then(response => {
+        alert('삭제가 완료되었습니다.').
           history.goBack();
         })
         .catch((err) => console.log(err));
@@ -55,7 +56,7 @@ function CustomerEditPage(props) {
             <div className="board">
                 <Title 
                 title="고객 관리"
-                subtitle="고객 정보 수정" />
+                subtitle="고객 상세 정보" />
                 <div className="content">
                     <table className="edit-table">
                         <thead>
