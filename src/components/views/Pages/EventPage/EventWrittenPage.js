@@ -15,19 +15,17 @@ const EventWrittenPage = (props) => {
     const history = useHistory();
 
     useEffect(() => {
-        // fetch(`http://54.180.146.9:3001/auth-non/file?folder_id=${image}&idx=0`, {
-        //     method: "GET",
-        //     headers: {
-        //     }
-        // })
-        // .then((response) => {
-        //     return response.json();
-        // })
-        // .then((response) => {
-        //     console.log(response.data);
-        //     setBoardImage(response.data);
-        //     setIsBoardImage(true);
-        // })
+        fetch(`http://54.180.146.9:3001/auth-non/file?folder_id=${id}&idx=0`, {
+            method: "GET",
+        })
+        .then((response) => {
+            return response.json();
+        })
+        .then((response) => {
+            console.log(response);
+            setBoardImage(response);
+            setIsBoardImage(true);
+        })
     }, [])
 
     const deleteData = () => {
@@ -52,7 +50,7 @@ const EventWrittenPage = (props) => {
         <div className="event">
             <Navbar selected={3} />
             <div className="board">
-                <Title title="행사 관리" subtitle="행사 관리" />
+                <Title title="행사 관리" subtitle="행사 상세 정보" />
                 <div className="content">
                     <div className="body_main_WrittenPage">
                         <div className="board_title">
@@ -67,14 +65,13 @@ const EventWrittenPage = (props) => {
                             <img 
                             className="board_img"
                             src={`http://54.180.146.9:3001/auth-non/file?folder_id=${image}&idx=0`}
-                            alt='event-img'
-                            width='50%' />
+                            alt='event-img' />
+                            <div className="buttons">
+                                <DeleteButton deleteData={deleteData} />
+                                <CancelButton />
+                            </div>  
                         </div>
                     </div>
-                    <div className="buttons">
-                        <DeleteButton deleteData={deleteData} />
-                        <CancelButton />
-                    </div>  
                 </div>
             </div>
         </div>

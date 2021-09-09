@@ -41,6 +41,7 @@ function EventAddPage(){
             })
             .then((response) => {
               console.log(response);
+              alert('행사 등록이 완료되었습니다.')
               history.goBack();
             })
             .catch((err) => {
@@ -51,7 +52,7 @@ function EventAddPage(){
     const uploadFile = () => {
       const file = document.getElementById('upload-file');
       const formData = new FormData();
-      formData.append('files', file);
+      formData.append('files', file.files[0]);
 
       //console.log(file.files[0]);
       fetch("http://54.180.146.9:3001/auth-non/file?counts=1", {
@@ -75,7 +76,7 @@ function EventAddPage(){
       <div className="event">
         <Navbar selected={3} />
         <div className="board">
-        <Title title="행사 관리" />
+        <Title title="행사 관리" subtitle="행사 신규 등록" />
           <div className="content">
               <table className="edit-table">
                 <thead></thead>
