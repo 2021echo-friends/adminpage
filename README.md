@@ -49,18 +49,14 @@ Project Management : npm
 <img src="./imgs/mainpage.jpg" width="400" height="auto" />
 
 * 고객 관리 페이지
-<img src="./imgs/customerMain.jpg" width="400" height="auto" />
-<img src="./imgs/customerEdit.jpg" width="400" height="auto" />
+<img src="./imgs/customerMain.jpg" width="400" height="auto" /> <img src="./imgs/customerEdit.jpg" width="400" height="auto" />
 
 * 물품 관리 페이지
-<img src="./imgs/productMain.jpg" width="400" height="auto" />
-<img src="./imgs/productAdd.jpg" width="400" height="auto" />
-<img src="./imgs/productEdit.jpg" width="400" height="auto" />
+<img src="./imgs/productMain.jpg" width="400" height="auto" /> <img src="./imgs/productAdd.jpg" width="400" height="auto" /> <img src="./imgs/productEdit.jpg" width="400" height="auto" />
 
 
 * 행사 관리 페이지
-<img src="./imgs/eventMain.jpg" width="400" height="auto" />
-<img src="./imgs/eventAdd.jpg" width="400" height="auto" />
+<img src="./imgs/eventMain.jpg" width="400" height="auto" /> <img src="./imgs/eventAdd.jpg" width="400" height="auto" />
 
 
 * 출석 퀴즈 관리 페이지
