@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 
-const EventWritten = ({id, no, date, title, body}) =>{
+const EventWritten = ({id, no, date, title, body, image}) =>{
     return(<Link 
     to={{ pathname: `/eventwritten/${no}`,
         state: {
@@ -8,7 +8,8 @@ const EventWritten = ({id, no, date, title, body}) =>{
             no,
             date,
             title,
-            body
+            body,
+            image
         }
     }}>
         <div className="board_content">

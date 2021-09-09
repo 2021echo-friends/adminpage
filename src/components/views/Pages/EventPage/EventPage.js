@@ -64,6 +64,7 @@ function EventPage() {
                                     date={data.date_create.substr(0, 19).replace(/T/gi, ' ')}
                                     title={data.title}
                                     body={data.body}
+                                    image={data.body_folder_id}
                                 />
                                 }
                                 if(Criterion === 1) {
@@ -75,6 +76,7 @@ function EventPage() {
                                     date={data.date_create.substr(0, 19).replace(/T/gi, ' ')}
                                     title={data.title}
                                     body={data.body}
+                                    image={data.body_folder_id}
                                 />
                                 }
                                 return false;

@@ -1,5 +1,5 @@
 import { useHistory } from "react-router";
-
+import { useEffect, useState } from "react";
 import "./EventWrittenPage.css";
 import Navbar from '../../Navbar/Navbar';
 import Title from '../../Navbar/Title';
@@ -8,9 +8,27 @@ import DeleteButton from '../../Button/DeleteButton';
 import CancelButton from '../../Button/CancelButton';
 
 const EventWrittenPage = (props) => {
-    const {id, no, date, title, body} = props.location.state;
+    const {id, no, date, title, body, image} = props.location.state;
+    const [isBoardImage, setIsBoardImage] = useState(false);
+    const [boardImage, setBoardImage] = useState();
     const token = localStorage.getItem('token');
     const history = useHistory();
+
+    useEffect(() => {
+        fetch(`http://54.180.146.9:3001/auth-non/file?folder_id=${image}&idx=0`, {
+            method: "GET",
+            headers: {
+            }
+        })
+        .then((response) => {
+            return response.json();
+        })
+        .then((response) => {
+            console.log(response.data);
+            setBoardImage(response.data);
+            setIsBoardImage(true);
+        })
+    }, [])
 
     const deleteData = () => {
         fetch(`http://54.180.146.9:3001/admin/post?post_id=${id}`, {
@@ -46,6 +64,15 @@ const EventWrittenPage = (props) => {
                         <div className="board_body">
                             {body}
                         </div>
+                        <div className="board_image">
+                            {
+                            // isBoardImage ?
+                            // boardImage
+                            // :
+                            // ""
+                            }
+                        </div>
+                    </div>
                     <div className="buttons">
                         <DeleteButton deleteData={deleteData} />
                         <CancelButton />

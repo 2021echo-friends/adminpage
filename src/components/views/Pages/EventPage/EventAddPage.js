@@ -22,9 +22,8 @@ function EventAddPage(){
         setBody(e.target.value);
     }
 
-    const addData = async (e) => {
-
-      const res = await fetch("http://54.180.146.9:3001/admin/post", {
+    const addData = () => {
+      fetch("http://54.180.146.9:3001/admin/post", {
             method: "POST",
             headers: {
                 "Content-Type" : "application/json",
@@ -37,14 +36,16 @@ function EventAddPage(){
               body_folder_id: DataId,
               })
             })
-            .then(response => {
-              return response.json()
-          })
-          .then(response => {
-              alert('등록이 완료되었습니다.')
+            .then((response) => {
+              return response.json();
+            })
+            .then((response) => {
               console.log(response);
               history.goBack();
-          })
+            })
+            .catch((err) => {
+              console.log(err);
+            })
     }
 
     const uploadFile = () => {
@@ -65,7 +66,6 @@ function EventAddPage(){
           })
           .then(response => {
             alert('사진 등록이 완료되었습니다.');
-            console.log(response);
             setDataId(response.data.folder_id);
         })
     }

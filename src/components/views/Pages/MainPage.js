@@ -28,16 +28,16 @@ function MainPage(props) {
                         <div className="banner">
                             <div className="img_container">
                                 <div className="bannerBox">
-                                    <img className="bannerImg" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat1.jpg?raw=true" />
+                                    <img className="bannerImg" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/event1.png?raw=true" />
                                 </div>
                                 <div className="bannerBox">
-                                    <img className="bannerImg" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat2.jpg?raw=true" />
+                                    <img className="bannerImg" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/event2.png?raw=true" />
                                 </div>
                                 <div className="bannerBox">
-                                    <img className="bannerImg" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat3.jpg?raw=true" />
+                                    <img className="bannerImg" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/event3.png?raw=true" />
                                 </div>
                                 <div className="bannerBox">
-                                    <img className="bannerImg" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/cat4.jpg?raw=true" />
+                                    <img className="bannerImg" src="https://github.com/Yoonlang/web-programming/blob/master/html/assets/event4.jpg?raw=true" />
                                 </div>
                             </div>
                         </div>
