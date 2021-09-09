@@ -27,6 +27,10 @@ Project Management : npm
 ### 팀원 구성 및 담당
 
 1. 최윤석
+  - 메인페이지 대시보드 구현
+  - 고객, 물품, 행사 관리 페이지 공동 구현
+  - 에코 포인트 현황 페이지 구현
+  - API 응답, 호출 기능 구현
 
 2. 김주영
    FrontEnd - UI/UX 디자인 및 구현
@@ -47,7 +51,6 @@ Project Management : npm
 
 * 고객 관리 페이지
 ![customer](./imgs/customerMain.jpg)
-![customer](./imgs/customerAdd.jpg)
 ![customer](./imgs/customerEdit.jpg)
 
 
