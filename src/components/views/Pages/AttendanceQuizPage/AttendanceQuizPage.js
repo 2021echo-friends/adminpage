@@ -9,7 +9,7 @@ import QuizInfo from './QuizInfo';
 import './AttendanceQuizPage.css';
 
 function AttendanceQuizPage() {
-    const criteria = [ '퀴즈 아이디' ];
+    const criteria = [ '전체', '퀴즈' ];
     const [Quizes, setQuizes] = useState([]);
     const [Criterion, setCriterion] = useState(0);
     const [Content, setContent] = useState("")
