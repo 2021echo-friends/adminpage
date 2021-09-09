@@ -3,16 +3,14 @@
 <hr/>
 친환경 제품 구매 및 퀴즈 풀기를 통한 환경 보호 시스템
 
-관리자 페이지 README입니다.
+관리자 페이지 README입니다.<br/>
 <a href="https://github.com/2021echo-friends"> EcoStep Organization <a/>
 
 ### 개발 일정 ###
-  <hr/>
   7월 15일 주제 선정 및 첫 회의
   9월 9일 개발 종료
 
 ### 기술 스택 ###
-  <hr/>
   FrontEnd
   Language : HTML, CSS, Javascript
   Library : React
