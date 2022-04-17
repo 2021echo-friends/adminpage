@@ -27,6 +27,11 @@ Project Management : npm
 ### 팀원 구성 및 담당
 
 1. 최윤석
+   * FrontEnd
+      * UI/UX 디자인
+      * 로그인 페이지 UI 구현
+      * 에코포인트/물품 관리/행사 관리/출석 퀴즈 관리 페이지 UI 및 서버 통신 구현
+      * Canvas를 통한 그래프 및 표 구현
 
 2. 김주영
    * FrontEnd
